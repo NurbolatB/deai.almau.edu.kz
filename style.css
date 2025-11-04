@@ -16,7 +16,40 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
 .brand h1{margin:0;font-size:1.05rem}
 .brand p{margin:0;color:var(--muted);font-size:0.9rem}
 
-.site-header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:50}
+
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  padding: 20px 0;
+  color: white;
+}
+
+.site-header .brand h1,
+.site-header .brand p,
+.site-header .lang-btn,
+.site-header .cta {
+  color: white;
+}
+
+.site-header .cta {
+  background: rgba(11, 99, 216, 0.85);
+}
+
+.site-header .lang-btn {
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+.site-header .lang-btn[aria-selected="true"] {
+  border-color: #fff;
+  font-weight: 700;
+}
+
+
 .top-controls{display:flex;align-items:center;gap:12px}
 .lang-switch{display:flex;gap:6px}
 .lang-btn{background:transparent;border:1px solid #ddd;padding:6px 8px;border-radius:6px;cursor:pointer}
@@ -38,6 +71,7 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
   color: white;
   border-bottom: 1px solid #eee;
   padding-left: 8vw; /* немного отступа от левого края */
+  padding-top: 120px;
 }
 
 .hero::before {
