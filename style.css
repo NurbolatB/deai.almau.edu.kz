@@ -51,6 +51,7 @@ html, body { height: 100%; background: var(--bg); color: #111; }
   height: 64px;
   width: auto;
    object-fit: contain;
+  color: #ffffff; /* белый цвет */
 }
 
 .brand-text {
