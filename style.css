@@ -27,8 +27,73 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
 .section{padding:40px 0}
 .section--accent{background:var(--card-bg)}
 
-.hero{background:linear-gradient(180deg, #f5f8ff 0%, #fff 100%);border-bottom:1px solid #eee}
-.hero h2{margin-top:0}
+/* === HERO SECTION === */
+.hero {
+  position: relative;
+  height: 100vh; /* на всю высоту экрана */
+  background: url('assets/images/first-fold.png') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* затемнение для читаемости текста */
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h2 {
+  margin-top: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #094eb1;
+}
+
+/* === Адаптивность hero === */
+@media (max-width: 768px) {
+  .hero {
+    height: 80vh;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
 .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--gap)}
 
