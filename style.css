@@ -24,6 +24,8 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
   width: 100%;
   z-index: 100;
   background: transparent;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+
   border: none;
   padding: 20px 0;
   color: white;
@@ -52,10 +54,7 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
 
 .top-controls{display:flex;align-items:center;gap:12px}
 .lang-switch{display:flex;gap:6px}
-.lang-btn{background:transparent;border:1px solid #ddd;padding:6px 8px;border-radius:6px;cursor:pointer}
-.lang-btn[aria-selected="true"]{border-color:var(--accent);font-weight:600;color:var(--accent)}
 
-.cta{background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none}
 
 .section{padding:40px 0}
 .section--accent{background:var(--card-bg)}
@@ -78,18 +77,19 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.18);
 }
 
 .hero .container {
   position: relative;
   z-index: 2;
-  max-width: 600px; /* ширина текстового блока */
-  background: rgba(0, 0, 0, 0.5); /* полупрозрачный фон прямоугольника */
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.15); /* вместо чёрного */
   padding: 40px;
   border-radius: 12px;
   text-align: left;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px); /* эффект “стекла” */
 }
 
 .hero h2 {
