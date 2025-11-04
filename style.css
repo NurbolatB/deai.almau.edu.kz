@@ -83,27 +83,27 @@ html, body { height: 100%; background: var(--bg); color: #111; }
   gap: 6px;
 }
 
+/* === FIX: контрастные кнопки языков === */
 .lang-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.4);
-  color: #fff;
-  padding: 5px 9px;
-  border-radius: 5px;
-  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
   font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s;
+  text-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
 .lang-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
   border-color: #fff;
 }
 
 .lang-btn[aria-selected="true"] {
-  background: rgba(255,255,255,0.2);
-  border-color: #fff;
-  font-weight: 600;
+  background: #ffffff;
+  color: #0b63d8;
+  font-weight: 700;
+  border-color: #ffffff;
 }
+
 
 .cta {
   background: #0b63d8;
