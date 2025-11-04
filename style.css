@@ -44,7 +44,7 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* затемнение для читаемости текста */
+  background: rgba(0, 0, 0, 0.25); /* затемнение для читаемости текста */
 }
 
 .hero .container {
