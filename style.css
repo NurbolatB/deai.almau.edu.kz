@@ -31,7 +31,7 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
 .hero {
   position: relative;
   height: 100vh; /* на всю высоту экрана */
-  background: url('assets/images/first-fold.png') center center / cover no-repeat;
+  background: url('assets/images/FirstF.png') center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
