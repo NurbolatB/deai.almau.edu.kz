@@ -50,6 +50,7 @@ html, body { height: 100%; background: var(--bg); color: #111; }
 .brand .logo {
   height: 64px;
   width: auto;
+   object-fit: contain;
 }
 
 .brand-text {
