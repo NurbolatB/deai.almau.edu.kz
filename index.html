@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Digitalization of Education in the Era of AI — Conference</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- Можно вставить логотип из Figma -->
+        <h1 id="site-title">Digitalization of Education in the Era of AI</h1>
+        <p id="site-subtitle">Конференция / Conference</p>
+      </div>
+
+      <nav class="top-controls" aria-label="Language and actions">
+        <div class="lang-switch" role="tablist" aria-label="Выбор языка">
+          <button class="lang-btn" data-lang="ru" aria-selected="true">RU</button>
+          <button class="lang-btn" data-lang="kz">KZ</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="#registration" class="cta" id="register-btn">Зарегистрироваться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="section hero">
+      <div class="container">
+        <h2 id="hero-title">Тема конференции</h2>
+        <p id="hero-desc">Краткое описание — здесь будет ваш текст на трёх языках.</p>
+        <p class="meta" id="hero-meta">Дата • Место</p>
+        <a href="#program" class="btn" id="hero-cta">Узнать программу</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h3 id="about-title">О конференции</h3>
+        <p id="about-text">Здесь будет блок «о конференции» — цель, организаторы, партнёры.</p>
+      </div>
+    </section>
+
+    <section id="program" class="section">
+      <div class="container">
+        <h3 id="program-title">Программа</h3>
+        <div id="program-list">
+          <!-- Пример. Замените на реальные записи или генерируйте через JS -->
+          <article class="program-item">
+            <div class="time">09:00 — 09:30</div>
+            <div class="info">
+              <h4 class="session-title">Открытие конференции</h4>
+              <div class="session-meta">Докладчик — Иван Иванов</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="speakers" class="section">
+      <div class="container">
+        <h3 id="speakers-title">Спикеры</h3>
+        <div id="speakers-list" class="grid">
+          <!-- Пример карточки -->
+          <div class="speaker-card">
+            <img src="assets/speaker-placeholder.jpg" alt="Speaker photo" />
+            <h4 class="speaker-name">Иван Иванов</h4>
+            <p class="speaker-bio">Краткая биография.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="registration" class="section section--accent">
+      <div class="container">
+        <h3 id="registration-title">Регистрация</h3>
+        <p id="registration-desc">Заполните форму, чтобы зарегистрироваться на конференцию.</p>
+
+        <!-- Временная форма-заглушка -->
+        <form id="registration-form" class="form" onsubmit="handleDummySubmit(event)">
+          <label>
+            <span id="label-name">Имя</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span id="label-email">Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            <span id="label-affiliation">Организация</span>
+            <input type="text" name="org" />
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn" id="submit-btn">Отправить</button>
+            <button type="reset" class="btn btn--muted">Очистить</button>
+          </div>
+
+          <div id="form-feedback" role="status" aria-live="polite" class="feedback" hidden>
+            Спасибо! Временная форма: данные не будут сохранены.
+          </div>
+        </form>
+
+        <p class="hint">Это заглушка — позже замените форму на Google Form или подключите сервер.</p>
+      </div>
+    </section>
+
+    <section id="contacts" class="section">
+      <div class="container">
+        <h3 id="contacts-title">Контакты</h3>
+        <p id="contacts-text">Email: conf@example.edu • Адрес: г. Алматы</p>
+        <!-- Можно вставить iframe карты -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p id="footer-text">© Организаторы — AlmaU</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
