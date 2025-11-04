@@ -30,38 +30,49 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
 /* === HERO SECTION === */
 .hero {
   position: relative;
-  height: 100vh; /* на всю высоту экрана */
+  height: 100vh;
   background: url('assets/images/FirstF.png') center center / cover no-repeat;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: center;  /* вертикальное выравнивание */
+  justify-content: flex-start; /* контент слева */
   color: white;
   border-bottom: 1px solid #eee;
+  padding-left: 8vw; /* немного отступа от левого края */
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25); /* затемнение для читаемости текста */
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .hero .container {
   position: relative;
   z-index: 2;
+  max-width: 600px; /* ширина текстового блока */
+  background: rgba(0, 0, 0, 0.5); /* полупрозрачный фон прямоугольника */
+  padding: 40px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 .hero h2 {
+  font-size: 2.5rem;
   margin-top: 0;
-  font-size: 3rem;
-  font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
+}
+
+.hero .meta {
+  font-size: 1rem;
+  margin-bottom: 1.8rem;
+  opacity: 0.9;
 }
 
 .btn {
@@ -79,20 +90,24 @@ html,body{height:100%;margin:0;background:var(--bg);color:#111}
   background: #094eb1;
 }
 
-/* === Адаптивность hero === */
+/* === Адаптивность === */
 @media (max-width: 768px) {
   .hero {
-    height: 80vh;
+    padding-left: 20px;
+    justify-content: center;
   }
-
+  .hero .container {
+    padding: 24px;
+    max-width: 90%;
+  }
   .hero h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
-
   .hero p {
     font-size: 1rem;
   }
 }
+
 
 .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--gap)}
