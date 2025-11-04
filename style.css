@@ -83,28 +83,29 @@ html, body { height: 100%; background: var(--bg); color: #111; }
   gap: 6px;
 }
 
-/* === FIX: контрастные кнопки языков === */
+/* === ЯЗЫКОВЫЕ КНОПКИ — ЧЁТКИЕ, КОНТРАСТНЫЕ === */
 .lang-btn {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  color: #ffffff;
-  font-weight: 500;
-  text-shadow: 0 0 2px rgba(0,0,0,0.3);
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .lang-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: #fff;
+  background: rgba(255,255,255,0.2);
 }
 
 .lang-btn[aria-selected="true"] {
-  background: #ffffff;
+  background: #fff;
   color: #0b63d8;
   font-weight: 700;
-  border-color: #ffffff;
 }
 
-
+/* === CTA КНОПКА === */
 .cta {
   background: #0b63d8;
   color: #fff;
@@ -169,6 +170,7 @@ html, body { height: 100%; background: var(--bg); color: #111; }
   opacity: 0.9;
 }
 
+/* === BUTTONS === */
 .btn {
   display: inline-block;
   padding: 12px 28px;
