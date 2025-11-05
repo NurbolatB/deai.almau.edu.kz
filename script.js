@@ -68,7 +68,7 @@ const translations = {
         'nav-about': 'Конференция туралы',
         'nav-program': 'Тақырыптар',
         'nav-speakers': 'Спикерлер',
-        'nav-faq': 'Жиі қойылатын сұрақтар',
+        'nav-faq': 'Сұрақтар',
         'nav-contacts': 'Байланыс',
         
         // About section
