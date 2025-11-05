@@ -169,7 +169,7 @@ html, body {
 .hero {
   position: relative;
   min-height: 100vh;
-  background: url('assets/images/FirstF.png') center center / cover no-repeat;
+  background: url('assets/images/FirstE.png') center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: flex-start;
