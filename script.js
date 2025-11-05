@@ -61,7 +61,7 @@ const translations = {
         // Hero section
         'hero-title': 'Digitalization of Education in the Era of AI',
         'hero-desc': 'Халықаралық ғылыми-тәжірибелік конференция',
-        'hero-meta': '📅 2025 • Алматы',
+        'hero-meta': '📅 Алматы, Казахстан 17-18 наурыз 2026',
         'hero-cta': 'Бағдарламаны білу',
         
         // Navigation
@@ -86,7 +86,7 @@ const translations = {
         'speaker-1-bio': 'Қысқаша өмірбаяны.',
         
         // FAQ section
-        'faq-title': 'Жиі қойылатын сұрақтар',
+        'faq-title': 'Сұрақтар',
         'faq-text': 'Конференция туралы жиі қойылатын сұрақтар.',
         
         // Registration section
@@ -115,7 +115,7 @@ const translations = {
         // Hero section
         'hero-title': 'Digitalization of Education in the Era of AI',
         'hero-desc': 'International Scientific and Practical Conference',
-        'hero-meta': '📅 2025 • Almaty',
+        'hero-meta': '📅 Almaty, Kazakhstan March 17-18, 2026',
         'hero-cta': 'View Program',
         
         // Navigation
