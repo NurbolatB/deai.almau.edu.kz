@@ -9,17 +9,19 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-    <div class="brand">
-  <img src="assets/images/001.png" alt="AlmaU logo" class="logo" />
-  <div class="brand-text">
-    <h1 id="site-title">Digitalization of Education in the Era of AI</h1>
-    <p id="site-subtitle">Международная научно-практическая конференция</p>
-  </div>
-</div>
+      <div class="brand">
+        <img src="assets/images/001.png" alt="AlmaU logo" class="logo" />
+      </div>
 
+      <nav class="main-nav">
+        <a href="#about">О конференции</a>
+        <a href="#program">Темы</a>
+        <a href="#speakers">Спикеры</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
 
       <nav class="top-controls" aria-label="Language and actions">
-               
         <div class="lang-switch" role="tablist" aria-label="Выбор языка">
           <button class="lang-btn" data-lang="ru" aria-selected="true">RU</button>
           <button class="lang-btn" data-lang="kz">KZ</button>
@@ -32,16 +34,15 @@
 
   <main>
     <section id="hero" class="hero">
-  <div class="hero-overlay">
-    <div class="container">
-      <h2 id="hero-title">Digitalization of Education in the Era of AI</h2>
-      <p id="hero-desc">Международная научно-практическая конференция</p>
-      <p class="meta" id="hero-meta">📅 2025 • Алматы</p>
-      <a href="#program" class="btn" id="hero-cta">Узнать программу</a>
-    </div>
-  </div>
-</section>
-
+      <div class="hero-overlay">
+        <div class="container">
+          <h2 id="hero-title">Digitalization of Education in the Era of AI</h2>
+          <p id="hero-desc">Международная научно-практическая конференция</p>
+          <p class="meta" id="hero-meta">📅 2025 • Алматы</p>
+          <a href="#program" class="btn" id="hero-cta">Узнать программу</a>
+        </div>
+      </div>
+    </section>
 
     <section id="about" class="section">
       <div class="container">
@@ -52,9 +53,8 @@
 
     <section id="program" class="section">
       <div class="container">
-        <h3 id="program-title">Программа</h3>
+        <h3 id="program-title">Темы</h3>
         <div id="program-list">
-          <!-- Пример. Замените на реальные записи или генерируйте через JS -->
           <article class="program-item">
             <div class="time">09:00 — 09:30</div>
             <div class="info">
@@ -70,7 +70,6 @@
       <div class="container">
         <h3 id="speakers-title">Спикеры</h3>
         <div id="speakers-list" class="grid">
-          <!-- Пример карточки -->
           <div class="speaker-card">
             <img src="assets/speaker-placeholder.jpg" alt="Speaker photo" />
             <h4 class="speaker-name">Иван Иванов</h4>
@@ -80,12 +79,18 @@
       </div>
     </section>
 
-    <section id="registration" class="section section--accent">
+    <section id="faq" class="section section--accent">
+      <div class="container">
+        <h3 id="faq-title">FAQ</h3>
+        <p id="faq-text">Часто задаваемые вопросы о конференции.</p>
+      </div>
+    </section>
+
+    <section id="registration" class="section">
       <div class="container">
         <h3 id="registration-title">Регистрация</h3>
         <p id="registration-desc">Заполните форму, чтобы зарегистрироваться на конференцию.</p>
 
-        <!-- Временная форма-заглушка -->
         <form id="registration-form" class="form" onsubmit="handleDummySubmit(event)">
           <label>
             <span id="label-name">Имя</span>
@@ -114,11 +119,10 @@
       </div>
     </section>
 
-    <section id="contacts" class="section">
+    <section id="contacts" class="section section--accent">
       <div class="container">
         <h3 id="contacts-title">Контакты</h3>
         <p id="contacts-text">Email: conf@example.edu • Адрес: г. Алматы</p>
-        <!-- Можно вставить iframe карты -->
       </div>
     </section>
   </main>
