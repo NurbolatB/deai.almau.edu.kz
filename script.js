@@ -1,145 +1,242 @@
-// DEFAULT LANGUAGE (по умолчанию русский)
-const DEFAULT_LANG = 'ru';
-
-// Переводы (заполните реальными строками из ваших текстов)
+// Локализация контента
 const translations = {
-  ru: {
-    siteTitle: "Digitalization of Education in the Era of AI",
-    siteSubtitle: "Международная научно-практическая конференция",
-    heroTitle: "Digitalization of Education in the Era of AI",
-    heroDesc: "Конференция посвящена цифровизации образования в эпоху ИИ.",
-    heroMeta: "20 декабря 2025 • Алматы",
-    heroCta: "Узнать программу",
-    aboutTitle: "О конференции",
-    aboutText: "Цель конференции — объединить исследователей и практиков для обсуждения...",
-    programTitle: "Программа",
-    speakersTitle: "Спикеры",
-    registrationTitle: "Регистрация",
-    registrationDesc: "Заполните форму, чтобы зарегистрироваться.",
-    labelName: "Имя",
-    labelEmail: "Email",
-    labelAffiliation: "Организация",
-    submitBtn: "Отправить",
-    contactsTitle: "Контакты",
-    contactsText: "Email: conf@example.edu • Адрес: г. Алматы",
-    footerText: "© Организаторы — AlmaU"
-  },
-  kz: {
-    siteTitle: "Digitalization of Education in the Era of AI",
-    siteSubtitle: "Халықаралық ғылыми-практикалық конференция",
-    heroTitle: "Білімдегі цифрландыру және ЖИ дәуірі",
-    heroDesc: "Конференция білімдегі цифрландыру мәселелерін талқылайды.",
-    heroMeta: "20 желтоқсан 2025 • Алматы",
-    heroCta: "Бағдарламаны көру",
-    aboutTitle: "Конференция туралы",
-    aboutText: "Мақсаты — зерттеушілер мен практиктерді біріктіру...",
-    programTitle: "Бағдарлама",
-    speakersTitle: "Спикерлер",
-    registrationTitle: "Тіркелу",
-    registrationDesc: "Тіркеу формасын толтырыңыз.",
-    labelName: "Аты-жөні",
-    labelEmail: "Электрондық пошта",
-    labelAffiliation: "Ұйымы",
-    submitBtn: "Жіберу",
-    contactsTitle: "Байланыс",
-    contactsText: "Email: conf@example.edu • Мекен-жайы: Алматы",
-    footerText: "© Ұйымдастырушылар — AlmaU"
-  },
-  en: {
-    siteTitle: "Digitalization of Education in the Era of AI",
-    siteSubtitle: "International Scientific and Practical Conference",
-    heroTitle: "Digitalization of Education in the Era of AI",
-    heroDesc: "The conference explores digitalization in education in the era of AI.",
-    heroMeta: "20 December 2025 • Almaty",
-    heroCta: "View program",
-    aboutTitle: "About the conference",
-    aboutText: "The aim is to bring researchers and practitioners together to discuss...",
-    programTitle: "Program",
-    speakersTitle: "Speakers",
-    registrationTitle: "Registration",
-    registrationDesc: "Fill the form to register.",
-    labelName: "Name",
-    labelEmail: "Email",
-    labelAffiliation: "Affiliation",
-    submitBtn: "Submit",
-    contactsTitle: "Contacts",
-    contactsText: "Email: conf@example.edu • Address: Almaty",
-    footerText: "© Organizers — AlmaU"
-  }
+    ru: {
+        // Header
+        'register-btn': 'Зарегистрироваться',
+        
+        // Hero section
+        'hero-title': 'Digitalization of Education in the Era of AI',
+        'hero-desc': 'Международная научно-практическая конференция',
+        'hero-meta': '📅 2025 • Алматы',
+        'hero-cta': 'Узнать программу',
+        
+        // Navigation
+        'nav-about': 'О конференции',
+        'nav-program': 'Темы',
+        'nav-speakers': 'Спикеры',
+        'nav-faq': 'FAQ',
+        'nav-contacts': 'Контакты',
+        
+        // About section
+        'about-title': 'О конференции',
+        'about-text': 'Здесь будет блок «о конференции» — цель, организаторы, партнёры.',
+        
+        // Program section
+        'program-title': 'Темы',
+        'program-session-1': 'Открытие конференции',
+        'program-speaker-1': 'Докладчик — Иван Иванов',
+        
+        // Speakers section
+        'speakers-title': 'Спикеры',
+        'speaker-1-name': 'Иван Иванов',
+        'speaker-1-bio': 'Краткая биография.',
+        
+        // FAQ section
+        'faq-title': 'FAQ',
+        'faq-text': 'Часто задаваемые вопросы о конференции.',
+        
+        // Registration section
+        'registration-title': 'Регистрация',
+        'registration-desc': 'Заполните форму, чтобы зарегистрироваться на конференцию.',
+        'label-name': 'Имя',
+        'label-email': 'Email',
+        'label-affiliation': 'Организация',
+        'submit-btn': 'Отправить',
+        'reset-btn': 'Очистить',
+        'form-success': 'Спасибо! Временная форма: данные не будут сохранены.',
+        'form-hint': 'Это заглушка — позже замените форму на Google Form или подключите сервер.',
+        
+        // Contacts section
+        'contacts-title': 'Контакты',
+        'contacts-text': 'Email: conf@example.edu • Адрес: г. Алматы',
+        
+        // Footer
+        'footer-text': '© Организаторы — AlmaU'
+    },
+    
+    kz: {
+        // Header
+        'register-btn': 'Тіркелу',
+        
+        // Hero section
+        'hero-title': 'Digitalization of Education in the Era of AI',
+        'hero-desc': 'Халықаралық ғылыми-тәжірибелік конференция',
+        'hero-meta': '📅 2025 • Алматы',
+        'hero-cta': 'Бағдарламаны білу',
+        
+        // Navigation
+        'nav-about': 'Конференция туралы',
+        'nav-program': 'Тақырыптар',
+        'nav-speakers': 'Спикерлер',
+        'nav-faq': 'Жиі қойылатын сұрақтар',
+        'nav-contacts': 'Байланыс',
+        
+        // About section
+        'about-title': 'Конференция туралы',
+        'about-text': 'Конференцияның мақсаты, ұйымдастырушылар, серіктестер туралы ақпарат.',
+        
+        // Program section
+        'program-title': 'Тақырыптар',
+        'program-session-1': 'Конференцияның ашылуы',
+        'program-speaker-1': 'Докладшы — Иван Иванов',
+        
+        // Speakers section
+        'speakers-title': 'Спикерлер',
+        'speaker-1-name': 'Иван Иванов',
+        'speaker-1-bio': 'Қысқаша өмірбаяны.',
+        
+        // FAQ section
+        'faq-title': 'Жиі қойылатын сұрақтар',
+        'faq-text': 'Конференция туралы жиі қойылатын сұрақтар.',
+        
+        // Registration section
+        'registration-title': 'Тіркелу',
+        'registration-desc': 'Конференцияға тіркелу үшін форманы толтырыңыз.',
+        'label-name': 'Аты-жөні',
+        'label-email': 'Электрондық пошта',
+        'label-affiliation': 'Ұйым',
+        'submit-btn': 'Жіберу',
+        'reset-btn': 'Тазарту',
+        'form-success': 'Рахмет! Уақытша форма: деректер сақталмайды.',
+        'form-hint': 'Бұл уақытша нұсқа — кейін Google Forms-пен ауыстырыңыз.',
+        
+        // Contacts section
+        'contacts-title': 'Байланыс',
+        'contacts-text': 'Email: conf@example.edu • Мекен-жайы: Алматы қ.',
+        
+        // Footer
+        'footer-text': '© Ұйымдастырушылар — AlmaU'
+    },
+    
+    en: {
+        // Header
+        'register-btn': 'Register',
+        
+        // Hero section
+        'hero-title': 'Digitalization of Education in the Era of AI',
+        'hero-desc': 'International Scientific and Practical Conference',
+        'hero-meta': '📅 2025 • Almaty',
+        'hero-cta': 'View Program',
+        
+        // Navigation
+        'nav-about': 'About',
+        'nav-program': 'Topics',
+        'nav-speakers': 'Speakers',
+        'nav-faq': 'FAQ',
+        'nav-contacts': 'Contacts',
+        
+        // About section
+        'about-title': 'About Conference',
+        'about-text': 'Information about the conference goals, organizers, and partners.',
+        
+        // Program section
+        'program-title': 'Topics',
+        'program-session-1': 'Conference Opening',
+        'program-speaker-1': 'Speaker — Ivan Ivanov',
+        
+        // Speakers section
+        'speakers-title': 'Speakers',
+        'speaker-1-name': 'Ivan Ivanov',
+        'speaker-1-bio': 'Short biography.',
+        
+        // FAQ section
+        'faq-title': 'FAQ',
+        'faq-text': 'Frequently asked questions about the conference.',
+        
+        // Registration section
+        'registration-title': 'Registration',
+        'registration-desc': 'Fill out the form to register for the conference.',
+        'label-name': 'Name',
+        'label-email': 'Email',
+        'label-affiliation': 'Organization',
+        'submit-btn': 'Submit',
+        'reset-btn': 'Clear',
+        'form-success': 'Thank you! Temporary form: data will not be saved.',
+        'form-hint': 'This is a placeholder — replace with Google Forms later.',
+        
+        // Contacts section
+        'contacts-title': 'Contacts',
+        'contacts-text': 'Email: conf@example.edu • Address: Almaty',
+        
+        // Footer
+        'footer-text': '© Organizers — AlmaU'
+    }
 };
 
+// Текущий язык
+let currentLang = 'ru';
 
-// Apply translations to DOM
-function applyLanguage(lang) {
-  const t = translations[lang] || translations[DEFAULT_LANG];
-
-  document.documentElement.lang = lang;
-  document.getElementById('site-title').textContent = t.siteTitle;
-  document.getElementById('site-subtitle').textContent = t.siteSubtitle;
-  document.getElementById('hero-title').textContent = t.heroTitle;
-  document.getElementById('hero-desc').textContent = t.heroDesc;
-  document.getElementById('hero-meta').textContent = t.heroMeta;
-  document.getElementById('hero-cta').textContent = t.heroCta;
-  document.getElementById('about-title').textContent = t.aboutTitle;
-  document.getElementById('about-text').textContent = t.aboutText;
-  document.getElementById('program-title').textContent = t.programTitle;
-  document.getElementById('speakers-title').textContent = t.speakersTitle;
-  document.getElementById('registration-title').textContent = t.registrationTitle;
-  document.getElementById('registration-desc').textContent = t.registrationDesc;
-  document.getElementById('label-name').textContent = t.labelName;
-  document.getElementById('label-email').textContent = t.labelEmail;
-  document.getElementById('label-affiliation').textContent = t.labelAffiliation;
-  document.getElementById('submit-btn').textContent = t.submitBtn;
-  document.getElementById('contacts-title').textContent = t.contactsTitle;
-  document.getElementById('contacts-text').textContent = t.contactsText;
-  document.getElementById('footer-text').textContent = t.footerText;
-
-  // Update lang buttons aria-selected
-  document.querySelectorAll('.lang-btn').forEach(btn=>{
-    const is = btn.dataset.lang === lang;
-    btn.setAttribute('aria-selected', is ? 'true' : 'false');
-  });
-}
-
-// Init language switcher
-function initLangSwitcher() {
-  const langButtons = document.querySelectorAll('.lang-btn');
-  langButtons.forEach(btn=>{
-    btn.addEventListener('click', () => {
-      const lang = btn.dataset.lang;
-      applyLanguage(lang);
-      // Optionally persist preference:
-      try { localStorage.setItem('conf_lang', lang); } catch(e){}
+// Функция для изменения языка
+function changeLanguage(lang) {
+    if (!translations[lang]) return;
+    
+    currentLang = lang;
+    
+    // Обновляем все элементы с data-i18n атрибутом
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            if (element.tagName === 'INPUT' && element.type !== 'submit') {
+                element.placeholder = translations[lang][key];
+            } else if (element.tagName === 'BUTTON' && element.type === 'submit') {
+                element.textContent = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
     });
-  });
-
-  // Load saved or default
-  const saved = (() => { try { return localStorage.getItem('conf_lang'); } catch(e){return null} })();
-  const startLang = saved || DEFAULT_LANG;
-  applyLanguage(startLang);
-}
-
-// Dummy submit handler for temporary form
-function handleDummySubmit(e) {
-  e.preventDefault();
-  const feedback = document.getElementById('form-feedback');
-  feedback.hidden = false;
-  feedback.textContent = translations[document.documentElement.lang || DEFAULT_LANG].submitBtn + ' — временная форма: данные не сохраняются.';
-  // Optionally clear form
-  e.target.reset();
-}
-
-// Run init on DOM ready
-document.addEventListener('DOMContentLoaded', ()=>{
-  initLangSwitcher();
-
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', (ev)=>{
-      ev.preventDefault();
-      const id = a.getAttribute('href').slice(1);
-      const el = document.getElementById(id);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    
+    // Обновляем aria-selected у кнопок переключения языка
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        const btnLang = btn.getAttribute('data-lang');
+        btn.setAttribute('aria-selected', btnLang === lang);
     });
-  });
+    
+    // Сохраняем выбор языка в localStorage
+    localStorage.setItem('preferred-language', lang);
+}
+
+// Функция для обработки отправки формы
+function handleDummySubmit(event) {
+    event.preventDefault();
+    const feedback = document.getElementById('form-feedback');
+    feedback.hidden = false;
+    feedback.textContent = translations[currentLang]['form-success'];
+    
+    // Очищаем форму
+    event.target.reset();
+    
+    // Скрываем сообщение через 5 секунд
+    setTimeout(() => {
+        feedback.hidden = true;
+    }, 5000);
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    // Восстанавливаем сохраненный язык или используем русский по умолчанию
+    const savedLang = localStorage.getItem('preferred-language') || 'ru';
+    changeLanguage(savedLang);
+    
+    // Добавляем обработчики для кнопок переключения языка
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            changeLanguage(lang);
+        });
+    });
+    
+    // Плавная прокрутка для якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 });
