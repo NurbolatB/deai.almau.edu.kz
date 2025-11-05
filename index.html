@@ -14,11 +14,11 @@
       </div>
 
       <nav class="main-nav">
-        <a href="#about">О конференции</a>
-        <a href="#program">Темы</a>
-        <a href="#speakers">Спикеры</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacts">Контакты</a>
+        <a href="#about" data-i18n="nav-about">О конференции</a>
+        <a href="#program" data-i18n="nav-program">Темы</a>
+        <a href="#speakers" data-i18n="nav-speakers">Спикеры</a>
+        <a href="#faq" data-i18n="nav-faq">FAQ</a>
+        <a href="#contacts" data-i18n="nav-contacts">Контакты</a>
       </nav>
 
       <nav class="top-controls" aria-label="Language and actions">
@@ -27,7 +27,7 @@
           <button class="lang-btn" data-lang="kz">KZ</button>
           <button class="lang-btn" data-lang="en">EN</button>
         </div>
-        <a href="#registration" class="cta" id="register-btn">Зарегистрироваться</a>
+        <a href="#registration" class="cta" id="register-btn" data-i18n="register-btn">Зарегистрироваться</a>
       </nav>
     </div>
   </header>
@@ -36,30 +36,30 @@
     <section id="hero" class="hero">
       <div class="hero-overlay">
         <div class="container">
-          <h2 id="hero-title">Digitalization of Education in the Era of AI</h2>
-          <p id="hero-desc">Международная научно-практическая конференция</p>
-          <p class="meta" id="hero-meta">📅 2025 • Алматы</p>
-          <a href="#program" class="btn" id="hero-cta">Узнать программу</a>
+          <h2 id="hero-title" data-i18n="hero-title">Digitalization of Education in the Era of AI</h2>
+          <p id="hero-desc" data-i18n="hero-desc">Международная научно-практическая конференция</p>
+          <p class="meta" id="hero-meta" data-i18n="hero-meta">📅 2025 • Алматы</p>
+          <a href="#program" class="btn" id="hero-cta" data-i18n="hero-cta">Узнать программу</a>
         </div>
       </div>
     </section>
 
     <section id="about" class="section">
       <div class="container">
-        <h3 id="about-title">О конференции</h3>
-        <p id="about-text">Здесь будет блок «о конференции» — цель, организаторы, партнёры.</p>
+        <h3 id="about-title" data-i18n="about-title">О конференции</h3>
+        <p id="about-text" data-i18n="about-text">Здесь будет блок «о конференции» — цель, организаторы, партнёры.</p>
       </div>
     </section>
 
     <section id="program" class="section">
       <div class="container">
-        <h3 id="program-title">Темы</h3>
+        <h3 id="program-title" data-i18n="program-title">Темы</h3>
         <div id="program-list">
           <article class="program-item">
             <div class="time">09:00 — 09:30</div>
             <div class="info">
-              <h4 class="session-title">Открытие конференции</h4>
-              <div class="session-meta">Докладчик — Иван Иванов</div>
+              <h4 class="session-title" data-i18n="program-session-1">Открытие конференции</h4>
+              <div class="session-meta" data-i18n="program-speaker-1">Докладчик — Иван Иванов</div>
             </div>
           </article>
         </div>
@@ -68,12 +68,12 @@
 
     <section id="speakers" class="section">
       <div class="container">
-        <h3 id="speakers-title">Спикеры</h3>
+        <h3 id="speakers-title" data-i18n="speakers-title">Спикеры</h3>
         <div id="speakers-list" class="grid">
           <div class="speaker-card">
             <img src="assets/speaker-placeholder.jpg" alt="Speaker photo" />
-            <h4 class="speaker-name">Иван Иванов</h4>
-            <p class="speaker-bio">Краткая биография.</p>
+            <h4 class="speaker-name" data-i18n="speaker-1-name">Иван Иванов</h4>
+            <p class="speaker-bio" data-i18n="speaker-1-bio">Краткая биография.</p>
           </div>
         </div>
       </div>
@@ -81,33 +81,33 @@
 
     <section id="faq" class="section section--accent">
       <div class="container">
-        <h3 id="faq-title">FAQ</h3>
-        <p id="faq-text">Часто задаваемые вопросы о конференции.</p>
+        <h3 id="faq-title" data-i18n="faq-title">FAQ</h3>
+        <p id="faq-text" data-i18n="faq-text">Часто задаваемые вопросы о конференции.</p>
       </div>
     </section>
 
     <section id="registration" class="section">
       <div class="container">
-        <h3 id="registration-title">Регистрация</h3>
-        <p id="registration-desc">Заполните форму, чтобы зарегистрироваться на конференцию.</p>
+        <h3 id="registration-title" data-i18n="registration-title">Регистрация</h3>
+        <p id="registration-desc" data-i18n="registration-desc">Заполните форму, чтобы зарегистрироваться на конференцию.</p>
 
         <form id="registration-form" class="form" onsubmit="handleDummySubmit(event)">
           <label>
-            <span id="label-name">Имя</span>
-            <input type="text" name="name" required />
+            <span id="label-name" data-i18n="label-name">Имя</span>
+            <input type="text" name="name" required data-i18n="label-name" />
           </label>
           <label>
-            <span id="label-email">Email</span>
-            <input type="email" name="email" required />
+            <span id="label-email" data-i18n="label-email">Email</span>
+            <input type="email" name="email" required data-i18n="label-email" />
           </label>
           <label>
-            <span id="label-affiliation">Организация</span>
-            <input type="text" name="org" />
+            <span id="label-affiliation" data-i18n="label-affiliation">Организация</span>
+            <input type="text" name="org" data-i18n="label-affiliation" />
           </label>
 
           <div class="form-actions">
-            <button type="submit" class="btn" id="submit-btn">Отправить</button>
-            <button type="reset" class="btn btn--muted">Очистить</button>
+            <button type="submit" class="btn" id="submit-btn" data-i18n="submit-btn">Отправить</button>
+            <button type="reset" class="btn btn--muted" data-i18n="reset-btn">Очистить</button>
           </div>
 
           <div id="form-feedback" role="status" aria-live="polite" class="feedback" hidden>
@@ -115,21 +115,21 @@
           </div>
         </form>
 
-        <p class="hint">Это заглушка — позже замените форму на Google Form или подключите сервер.</p>
+        <p class="hint" data-i18n="form-hint">Это заглушка — позже замените форму на Google Form или подключите сервер.</p>
       </div>
     </section>
 
     <section id="contacts" class="section section--accent">
       <div class="container">
-        <h3 id="contacts-title">Контакты</h3>
-        <p id="contacts-text">Email: conf@example.edu • Адрес: г. Алматы</p>
+        <h3 id="contacts-title" data-i18n="contacts-title">Контакты</h3>
+        <p id="contacts-text" data-i18n="contacts-text">Email: conf@example.edu • Адрес: г. Алматы</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p id="footer-text">© Организаторы — AlmaU</p>
+      <p id="footer-text" data-i18n="footer-text">© Организаторы — AlmaU</p>
     </div>
   </footer>
 
