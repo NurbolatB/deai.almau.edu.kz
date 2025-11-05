@@ -62,7 +62,7 @@ html, body { height: 100%; background: var(--bg); color: #111; }
 
 .brand-text h1 {
   margin: 0;
-  font-size: 1.95rem;
+  font-size: 1.05rem;
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.3px;
@@ -71,7 +71,7 @@ html, body { height: 100%; background: var(--bg); color: #111; }
 
 .brand-text p {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.0rem;
   color: rgba(255,255,255,0.85);
 }
 
