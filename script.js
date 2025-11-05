@@ -7,7 +7,7 @@ const translations = {
         // Hero section
         'hero-title': 'Digitalization of Education in the Era of AI',
         'hero-desc': 'Международная научно-практическая конференция',
-        'hero-meta': '📅 2025 • Алматы',
+        'hero-meta': '📅 Алматы, Казахстан 17-18 марта 2026',
         'hero-cta': 'Узнать программу',
         
         // Navigation
