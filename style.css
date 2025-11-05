@@ -76,7 +76,7 @@ html, body {
 
 .brand-text h1 {
   margin: 0;
-  font-size: 1.95rem;
+  font-size: 1.05rem;
   color: var(--text-white);
   font-weight: 600;
   letter-spacing: 0.3px;
@@ -85,7 +85,7 @@ html, body {
 
 .brand-text p {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.0rem;
   color: rgba(255,255,255,0.85);
 }
 
