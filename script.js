@@ -31,9 +31,6 @@ const translations = {
         'speaker-1-name': 'Иван Иванов',
         'speaker-1-bio': 'Краткая биография.',
         
-        // FAQ section
-        'faq-title': 'FAQ',
-        'faq-text': 'Часто задаваемые вопросы о конференции.',
         
         // Registration section
         'registration-title': 'Регистрация',
@@ -85,9 +82,6 @@ const translations = {
         'speaker-1-name': 'Иван Иванов',
         'speaker-1-bio': 'Қысқаша өмірбаяны.',
         
-        // FAQ section
-        'faq-title': 'Сұрақтар',
-        'faq-text': 'Конференция туралы жиі қойылатын сұрақтар.',
         
         // Registration section
         'registration-title': 'Тіркелу',
@@ -138,10 +132,7 @@ const translations = {
         'speakers-title': 'Speakers',
         'speaker-1-name': 'Ivan Ivanov',
         'speaker-1-bio': 'Short biography.',
-        
-        // FAQ section
-        'faq-title': 'FAQ',
-        'faq-text': 'Frequently asked questions about the conference.',
+    
         
         // Registration section
         'registration-title': 'Registration',
@@ -240,3 +231,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+
+// Speakers show more/less
+const showMoreBtn = document.getElementById('show-more-speakers');
+const addlCards = document.querySelectorAll('#speakers-list .addl');
+let expanded = false;
+
+showMoreBtn.addEventListener('click', () => {
+  expanded = !expanded;
+  addlCards.forEach(el => el.style.display = expanded ? 'block' : 'none');
+  showMoreBtn.textContent = expanded ? 'Показать меньше' : 'Показать больше';
+});
+
+document.querySelectorAll('.info-toggle').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const block = btn.closest('.info-block');
+    block.classList.toggle('open');
+    btn.classList.toggle('active');
+  });
+});
+
+document.querySelectorAll('.info-toggle').forEach(btn => {
+  btn.addEventListener('click', function() {
+    // Найти ближайший соседний .info-content после кнопки
+    const content = btn.nextElementSibling;
+    if (content && content.classList.contains('info-content')) {
+      content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+      btn.classList.toggle('active');
+    }
+  });
+});
+
