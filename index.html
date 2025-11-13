@@ -181,7 +181,65 @@ Adjunct Professor в университетах Кореи, Индонезии �
   </div>
 </section>
 
+<section id="registration" class="section section--accent">
+  <div class="container">
+    <h3 id="registration-title">Регистрация</h3>
+    <p id="registration-desc">Заполните форму, чтобы зарегистрироваться на конференцию.</p>
 
+    <form id="conference-form" class="form">
+      <label>
+        <span>ФИО</span>
+        <input type="text" name="name" placeholder="Ваше имя" required />
+      </label>
+
+      <label>
+        <span>Роль</span>
+        <select name="role" required>
+          <option value="" disabled selected>Выберите</option>
+          <option value="Участник">Участник</option>
+          <option value="Докладчик">Докладчик</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Тема (если Вы Докладчик)</span>
+        <input type="text" name="topic" placeholder="Тема доклада" />
+      </label>
+
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" placeholder="Ваш email" required />
+      </label>
+
+      <label>
+        <span>Страна</span>
+        <input type="text" name="country" placeholder="Ваша страна" />
+      </label>
+
+      <label>
+        <span>Организация / Университет</span>
+        <input type="text" name="organization" placeholder="Место работы или учёбы" />
+      </label>
+
+      <label>
+        <span>Формат участия</span>
+        <select name="format" required>
+          <option value="" disabled selected>Выберите формат</option>
+          <option value="Онлайн">Онлайн</option>
+          <option value="Офлайн">Офлайн</option>
+        </select>
+      </label>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-registration">Зарегистрироваться</button>
+      </div>
+
+      <p id="form-status" class="feedback" style="margin-top:10px;"></p>
+    </form>
+  </div>
+</section>
+
+    
   <!-- Registration -->
 <section id="registration" class="section">
   <div class="container">
