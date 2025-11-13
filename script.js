@@ -203,6 +203,45 @@ function changeLanguage(lang) {
 //    }, 5000);
 //}
 
+// === GOOGLE SHEETS FORM SUBMISSION ===
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('conference-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    status.textContent = 'Отправка...';
+    status.style.color = '#555';
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/PASTE_YOUR_WEB_APP_URL_HERE/exec', { 
+        // ⬆️ вставь сюда свой URL из Google Apps Script
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      const result = await response.json();
+
+      if (result.result === 'success') {
+        status.textContent = '✅ Регистрация успешно отправлена!';
+        status.style.color = 'green';
+        form.reset();
+      } else {
+        status.textContent = '⚠️ Ошибка при отправке. Попробуйте позже.';
+        status.style.color = 'orange';
+      }
+    } catch (err) {
+      console.error('Ошибка:', err);
+      status.textContent = '❌ Ошибка соединения. Проверьте интернет или попробуйте позже.';
+      status.style.color = 'red';
+    }
+  });
+});
+
 
 // === Formspree: обработка регистрации ===
 const form = document.getElementById('registration-form');
