@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     try {
       const response = await fetch('https://script.google.com/macros/s/AKfycbz66PWXogEpyQEmTO4_NzptJogptrhyB5CsQYphaVYOws-zta6yAKitQpPIvbf7BIOVQQ/exec', { 
-        // ⬆️ вставь сюда свой URL из Google Apps Script
+        // ⬆️ вставь сюда свой URL из Google Apps Script https://script.google.com/macros/s/AKfycbz66PWXogEpyQEmTO4_NzptJogptrhyB5CsQYphaVYOws-zta6yAKitQpPIvbf7BIOVQQ/exec
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
