@@ -188,19 +188,56 @@ function changeLanguage(lang) {
 }
 
 // Функция для обработки отправки формы
-function handleDummySubmit(event) {
-    event.preventDefault();
-    const feedback = document.getElementById('form-feedback');
-    feedback.hidden = false;
-    feedback.textContent = translations[currentLang]['form-success'];
+// function handleDummySubmit(event) {
+   // event.preventDefault();
+  //  const feedback = document.getElementById('form-feedback');
+ //   feedback.hidden = false;
+ //   feedback.textContent = translations[currentLang]['form-success'];
     
     // Очищаем форму
-    event.target.reset();
+//    event.target.reset();
     
     // Скрываем сообщение через 5 секунд
-    setTimeout(() => {
-        feedback.hidden = true;
-    }, 5000);
+//    setTimeout(() => {
+//        feedback.hidden = true;
+//    }, 5000);
+//}
+
+
+// === Formspree: обработка регистрации ===
+const form = document.getElementById('registration-form');
+const successMsg = document.getElementById('form-success');
+
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMsg.textContent = translations[currentLang]['form-success'];
+        successMsg.style.display = 'block';
+        successMsg.style.opacity = 0;
+        successMsg.style.transition = 'opacity 0.6s';
+        setTimeout(() => successMsg.style.opacity = 1, 50);
+        setTimeout(() => {
+          successMsg.style.opacity = 0;
+          setTimeout(() => successMsg.style.display = 'none', 600);
+        }, 5000);
+      } else {
+        alert('Ошибка при отправке. Попробуйте позже.');
+      }
+    } catch (err) {
+      alert('Сетевая ошибка. Проверьте интернет.');
+    }
+  });
 }
 
 // Инициализация при загрузке страницы
