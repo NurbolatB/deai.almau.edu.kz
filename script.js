@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/PASTE_YOUR_WEB_APP_URL_HERE/exec', { 
+      const response = await fetch('https://script.google.com/macros/s/AKfycbz66PWXogEpyQEmTO4_NzptJogptrhyB5CsQYphaVYOws-zta6yAKitQpPIvbf7BIOVQQ/exec', { 
         // ⬆️ вставь сюда свой URL из Google Apps Script
         method: 'POST',
         body: JSON.stringify(data),
