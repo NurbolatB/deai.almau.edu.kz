@@ -297,7 +297,87 @@ Adjunct Professor в университетах Кореи, Индонезии �
 </section>
 
 
+<!-- Registration -->
+<section id="registration" class="section registration-section">
+  <div class="container">
+    <h2>РЕГИСТРАЦИЯ</h2>
+    <p class="registration-subtitle">Заполните форму ниже для участия в конференции</p>
 
+    <form id="registration-form" class="registration-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fullname">ФИО *</label>
+          <input type="text" id="fullname" name="name" placeholder="Иванов Иван Иванович" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (777) 123-45-67">
+        </div>
+        
+        <div class="form-group">
+          <label for="country">Страна</label>
+          <input type="text" id="country" name="country" placeholder="Казахстан">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="organization">Организация / Университет *</label>
+        <input type="text" id="organization" name="organization" placeholder="AlmaU University" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="role">Роль *</label>
+          <select id="role" name="role" required>
+            <option value="" disabled selected>Выберите роль</option>
+            <option value="Участник">Участник</option>
+            <option value="Докладчик">Докладчик</option>
+            <option value="Студент">Студент</option>
+            <option value="Преподаватель">Преподаватель</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="format">Формат участия *</label>
+          <select id="format" name="format" required>
+            <option value="" disabled selected>Выберите формат</option>
+            <option value="Онлайн">Онлайн</option>
+            <option value="Офлайн">Офлайн</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" id="topic-field" style="display: none;">
+        <label for="topic">Тема доклада *</label>
+        <input type="text" id="topic" name="topic" placeholder="Введите тему вашего доклада">
+        <small>Пожалуйста, укажите тему вашего выступления</small>
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Дополнительные комментарии</label>
+        <textarea id="comments" name="comments" placeholder="Ваши вопросы или пожелания..." rows="3"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          <span class="btn-text">Зарегистрироваться</span>
+          <span class="btn-loading" style="display: none;">Отправка...</span>
+        </button>
+      </div>
+
+      <div id="form-messages"></div>
+    </form>
+  </div>
+</section>
+    
     <section id="contacts" class="section section--accent">
       <div class="container">
         <h3 id="contacts-title" data-i18n="contacts-title">Контакты</h3>
