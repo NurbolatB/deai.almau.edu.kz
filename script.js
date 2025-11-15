@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // URL вашего Google Apps Script (замените на ваш)
-                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz66PWXogEpyQEmTO4_NzptJogptrhyB5CsQYphaVYOws-zta6yAKitQpPIvbf7BIOVQQ/exec';
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzsjrB8IcbERoAP7MLMb7liCkoej2bPm48EbmmzBqJe_--R9UHGpqEmt0cY46CpHG00vQ/exec';
                 
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
