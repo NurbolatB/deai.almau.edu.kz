@@ -452,7 +452,7 @@ if (registrationForm) {
             
             // Подготавливаем данные для Static Forms
             const staticFormsData = {
-                accessKey: 'sf_j27hb35jef312k9f826af130',
+                accessKey: 'sf_j27hb35jef312k9f826af132',
                 subject: 'Регистрация на конференцию DEAI',
                 name: data.name,
                 email: data.email,
