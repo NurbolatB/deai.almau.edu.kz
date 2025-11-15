@@ -59,6 +59,9 @@ const translations = {
         'form-validation-role': 'Пожалуйста, выберите роль',
         'form-validation-format': 'Пожалуйста, выберите формат участия',
         'form-validation-topic': 'Пожалуйста, укажите тему доклада',
+
+      
+
         
         // Contacts section
         'contacts-title': 'Контакты',
@@ -291,49 +294,62 @@ function isValidEmail(email) {
 
 // Функция для валидации формы
 function validateForm(formData) {
-    if (!formData.name.trim()) {
+    console.log('🔍 Начинаем валидацию формы...', formData);
+    
+    if (!formData.name || !formData.name.trim()) {
+        console.error('❌ Валидация failed: ФИО не заполнено');
         showFormMessage(translations[currentLang]['form-validation-name'], 'error');
         return false;
     }
     
-    if (!formData.email.trim() || !isValidEmail(formData.email)) {
+    if (!formData.email || !formData.email.trim() || !isValidEmail(formData.email)) {
+        console.error('❌ Валидация failed: Email невалидный');
         showFormMessage(translations[currentLang]['form-validation-email'], 'error');
         return false;
     }
     
-    if (!formData.organization.trim()) {
+    if (!formData.organization || !formData.organization.trim()) {
+        console.error('❌ Валидация failed: Организация не заполнена');
         showFormMessage(translations[currentLang]['form-validation-organization'], 'error');
         return false;
     }
     
     if (!formData.role) {
+        console.error('❌ Валидация failed: Роль не выбрана');
         showFormMessage(translations[currentLang]['form-validation-role'], 'error');
         return false;
     }
     
     if (!formData.format) {
+        console.error('❌ Валидация failed: Формат не выбран');
         showFormMessage(translations[currentLang]['form-validation-format'], 'error');
         return false;
     }
     
-    if (formData.role === 'Докладчик' && !formData.topic.trim()) {
+    if (formData.role === 'Докладчик' && (!formData.topic || !formData.topic.trim())) {
+        console.error('❌ Валидация failed: Тема доклада не указана');
         showFormMessage(translations[currentLang]['form-validation-topic'], 'error');
         return false;
     }
     
+    console.log('✅ Валидация прошла успешно');
     return true;
 }
 
 // Основная функция инициализации
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Инициализация приложения...');
+    
     // Восстанавливаем сохраненный язык или используем русский по умолчанию
     const savedLang = localStorage.getItem('preferred-language') || 'ru';
+    console.log('🌐 Устанавливаем язык:', savedLang);
     changeLanguage(savedLang);
     
     // Добавляем обработчики для кнопок переключения языка
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const lang = this.getAttribute('data-lang');
+            console.log('🔄 Смена языка на:', lang);
             changeLanguage(lang);
         });
     });
@@ -344,6 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
+                console.log('📜 Плавная прокрутка к:', this.getAttribute('href'));
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -358,13 +375,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const topicField = document.getElementById('topic-field');
     const topicInput = document.getElementById('topic');
 
+    console.log('📝 Инициализация формы регистрации:', {
+        form: registrationForm ? 'найдена' : 'не найдена',
+        roleSelect: roleSelect ? 'найден' : 'не найден',
+        topicField: topicField ? 'найдено' : 'не найдено'
+    });
+
     // Показ/скрытие поля темы для докладчиков
     if (roleSelect && topicField) {
         roleSelect.addEventListener('change', function() {
+            console.log('🎭 Изменение роли:', this.value);
             if (this.value === 'Докладчик') {
+                console.log('📢 Показываем поле темы доклада');
                 topicField.style.display = 'block';
                 topicInput.required = true;
             } else {
+                console.log('👤 Скрываем поле темы доклада');
                 topicField.style.display = 'none';
                 topicInput.required = false;
                 topicInput.value = '';
@@ -375,6 +401,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработка отправки формы регистрации
     if (registrationForm) {
         registrationForm.addEventListener('submit', async function(e) {
+            console.log('🔄 Начало обработки отправки формы');
             e.preventDefault();
             
             const submitBtn = this.querySelector('button[type="submit"]');
@@ -382,6 +409,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const btnLoading = submitBtn.querySelector('.btn-loading');
             
             // Показываем индикатор загрузки
+            console.log('⏳ Показываем индикатор загрузки');
             if (btnText && btnLoading) {
                 btnText.style.display = 'none';
                 btnLoading.style.display = 'inline';
@@ -396,14 +424,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData);
                 
+                console.log('📦 Собранные данные формы:', data);
+                
                 // Валидация формы
                 if (!validateForm(data)) {
+                    console.log('❌ Валидация не пройдена, прерываем отправку');
                     return;
                 }
                 
-                // URL вашего Google Apps Script (замените на ваш)
-                const SCRIPT_URL = 'hhttps://script.google.com/macros/s/AKfycbwPIeB6WikHnZAjfAUtRYSJhKGYkckJiv5diWE7nJaqD47JD81XipMmaAh1o1fBA1I2Iw/exec';
+                // URL для отправки
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwPIeB6WikHnZAjfAUtRYSJhKGYkckJiv5diWE7nJaqD47JD81XipMmaAh1o1fBA1I2Iw/exec';
+                console.log('🌐 Отправка запроса на:', SCRIPT_URL);
                 
+                // Отправляем запрос
+                console.log('📤 Отправка POST запроса...');
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
                     headers: {
@@ -412,19 +446,59 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: JSON.stringify(data)
                 });
                 
-                const result = await response.json();
+                console.log('📨 Получен ответ:', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    ok: response.ok,
+                    headers: Object.fromEntries(response.headers.entries())
+                });
+                
+                // Пытаемся прочитать ответ
+                let result;
+                try {
+                    const responseText = await response.text();
+                    console.log('📄 Текст ответа:', responseText);
+                    
+                    // Пытаемся распарсить JSON
+                    result = JSON.parse(responseText);
+                    console.log('📊 Парсинг JSON успешен:', result);
+                } catch (parseError) {
+                    console.error('❌ Ошибка парсинга JSON:', parseError);
+                    throw new Error('Неверный формат ответа от сервера');
+                }
                 
                 if (result.success || result.result === 'success') {
+                    console.log('✅ Успешная отправка формы');
                     showFormMessage(translations[currentLang]['form-success'], 'success');
                     registrationForm.reset();
-                    if (topicField) topicField.style.display = 'none';
+                    if (topicField) {
+                        topicField.style.display = 'none';
+                    }
                 } else {
-                    throw new Error(result.error || 'Ошибка при отправке формы');
+                    console.error('❌ Ошибка от сервера:', result);
+                    throw new Error(result.error || result.message || 'Ошибка при отправке формы');
                 }
+                
             } catch (error) {
-                console.error('Form submission error:', error);
-                showFormMessage(translations[currentLang]['form-error'], 'error');
+                console.error('💥 Критическая ошибка при отправке формы:', {
+                    name: error.name,
+                    message: error.message,
+                    stack: error.stack
+                });
+                
+                // Детальный анализ ошибки
+                if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                    console.error('🌐 Сетевая ошибка: Проверьте интернет соединение и CORS настройки');
+                    showFormMessage('❌ Ошибка сети. Проверьте интернет соединение.', 'error');
+                } else if (error.name === 'SyntaxError') {
+                    console.error('📄 Ошибка парсинга: Сервер вернул невалидный JSON');
+                    showFormMessage('❌ Ошибка сервера. Попробуйте позже.', 'error');
+                } else {
+                    console.error('❌ Другая ошибка:', error);
+                    showFormMessage(translations[currentLang]['form-error'], 'error');
+                }
             } finally {
+                console.log('🔄 Восстанавливаем состояние кнопки');
                 // Восстанавливаем кнопку
                 if (btnText && btnLoading) {
                     btnText.style.display = 'inline';
@@ -433,12 +507,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.disabled = false;
             }
         });
+    } else {
+        console.error('❌ Форма регистрации не найдена! Проверьте ID элемента');
     }
 
     // Валидация телефона
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
         phoneInput.addEventListener('input', function(e) {
+            console.log('📞 Форматирование телефона:', e.target.value);
             let value = e.target.value.replace(/\D/g, '');
             if (value.startsWith('7') || value.startsWith('8')) {
                 value = value.substring(1);
@@ -459,6 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             e.target.value = formattedValue;
+            console.log('📞 Отформатированный телефон:', formattedValue);
         });
     }
 
@@ -468,8 +546,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let expanded = false;
 
     if (showMoreBtn && addlCards.length > 0) {
+        console.log('🎤 Инициализация кнопки спикеров:', addlCards.length, 'скрытых карточек');
         showMoreBtn.addEventListener('click', () => {
             expanded = !expanded;
+            console.log('🎤 Переключение спикеров:', expanded ? 'показать больше' : 'показать меньше');
             addlCards.forEach(el => el.style.display = expanded ? 'block' : 'none');
             showMoreBtn.textContent = expanded ? 
                 translations[currentLang]['show-less-speakers'] : 
@@ -478,15 +558,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ===== INFO TOGGLE BUTTONS =====
-    document.querySelectorAll('.info-toggle').forEach(btn => {
+    const infoToggles = document.querySelectorAll('.info-toggle');
+    console.log('ℹ️ Найдено toggle кнопок:', infoToggles.length);
+    
+    infoToggles.forEach(btn => {
         btn.addEventListener('click', function() {
             const content = this.nextElementSibling;
             if (content && content.classList.contains('info-content')) {
-                content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+                const isVisible = content.style.display === 'block';
+                console.log('📖 Переключение информации:', isVisible ? 'скрыть' : 'показать');
+                content.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             }
         });
     });
+
+    console.log('✅ Инициализация завершена');
 });
 
 // Обновляем локализацию для кнопки спикеров при смене языка
@@ -510,6 +597,7 @@ function updateSpeakersButton() {
 // Переопределяем changeLanguage для обновления кнопки спикеров
 const originalChangeLanguage = changeLanguage;
 changeLanguage = function(lang) {
+    console.log('🔄 Обновление языка и кнопки спикеров');
     originalChangeLanguage(lang);
     updateSpeakersButton();
 };
