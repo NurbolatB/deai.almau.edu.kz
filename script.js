@@ -31,24 +31,48 @@ const translations = {
         'speaker-1-name': 'Иван Иванов',
         'speaker-1-bio': 'Краткая биография.',
         
-        
         // Registration section
         'registration-title': 'Регистрация',
-        'registration-desc': 'Заполните форму, чтобы зарегистрироваться на конференцию.',
-        'label-name': 'Имя',
+        'registration-desc': 'Заполните форму ниже для участия в конференции',
+        'label-name': 'ФИО',
         'label-email': 'Email',
-        'label-affiliation': 'Организация',
-        'submit-btn': 'Отправить',
-        'reset-btn': 'Очистить',
-        'form-success': 'Спасибо! Временная форма: данные не будут сохранены.',
-        'form-hint': 'Это заглушка — позже замените форму на Google Form или подключите сервер.',
+        'label-phone': 'Телефон',
+        'label-country': 'Страна',
+        'label-organization': 'Организация / Университет',
+        'label-role': 'Роль',
+        'label-format': 'Формат участия',
+        'label-topic': 'Тема доклада',
+        'label-comments': 'Дополнительные комментарии',
+        'role-participant': 'Участник',
+        'role-speaker': 'Докладчик',
+        'role-student': 'Студент',
+        'role-teacher': 'Преподаватель',
+        'format-online': 'Онлайн',
+        'format-offline': 'Офлайн',
+        'submit-btn': 'Зарегистрироваться',
+        'submit-loading': 'Отправка...',
+        'form-success': '✅ Регистрация прошла успешно! Мы отправили подтверждение на вашу почту.',
+        'form-error': '❌ Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.',
+        'form-validation-name': 'Пожалуйста, введите ФИО',
+        'form-validation-email': 'Пожалуйста, введите корректный email',
+        'form-validation-organization': 'Пожалуйста, введите организацию',
+        'form-validation-role': 'Пожалуйста, выберите роль',
+        'form-validation-format': 'Пожалуйста, выберите формат участия',
+        'form-validation-topic': 'Пожалуйста, укажите тему доклада',
         
         // Contacts section
         'contacts-title': 'Контакты',
-        'contacts-text': 'Email: conf@example.edu • Адрес: г. Алматы',
+        'contacts-text1': '📍 Адрес: г. Алматы, ул. Розыбакиева, 227, кабинет 253',
+        'contacts-text2': '📱 Телефон: +7 701 761 9108',
+        'contacts-text3': '📧 E-mail: deai.almau.edu.kz',
+        'contacts-text4': '🌐 Сайт: https://almau.edu.kz',
         
         // Footer
-        'footer-text': '© Организаторы — AlmaU'
+        'footer-text': '© Организаторы — AlmaU',
+        
+        // Speakers button
+        'show-more-speakers': 'Показать больше',
+        'show-less-speakers': 'Показать меньше'
     },
     
     kz: {
@@ -82,24 +106,48 @@ const translations = {
         'speaker-1-name': 'Иван Иванов',
         'speaker-1-bio': 'Қысқаша өмірбаяны.',
         
-        
         // Registration section
         'registration-title': 'Тіркелу',
-        'registration-desc': 'Конференцияға тіркелу үшін форманы толтырыңыз.',
+        'registration-desc': 'Конференцияға қатысу үшін төмендегі форманы толтырыңыз',
         'label-name': 'Аты-жөні',
         'label-email': 'Электрондық пошта',
-        'label-affiliation': 'Ұйым',
-        'submit-btn': 'Жіберу',
-        'reset-btn': 'Тазарту',
-        'form-success': 'Рахмет! Уақытша форма: деректер сақталмайды.',
-        'form-hint': 'Бұл уақытша нұсқа — кейін Google Forms-пен ауыстырыңыз.',
+        'label-phone': 'Телефон',
+        'label-country': 'Ел',
+        'label-organization': 'Ұйым / Университет',
+        'label-role': 'Рөл',
+        'label-format': 'Қатысу форматы',
+        'label-topic': 'Доклад тақырыбы',
+        'label-comments': 'Қосымша түсініктемелер',
+        'role-participant': 'Қатысушы',
+        'role-speaker': 'Докладшы',
+        'role-student': 'Студент',
+        'role-teacher': 'Оқытушы',
+        'format-online': 'Онлайн',
+        'format-offline': 'Офлайн',
+        'submit-btn': 'Тіркелу',
+        'submit-loading': 'Жіберілуде...',
+        'form-success': '✅ Тіркелу сәтті аяқталды! Біз сіздің поштаңызға растау жібердік.',
+        'form-error': '❌ Форманы жіберу кезінде қате орын алды. Қайталап көріңіз немесе бізбен тікелей байланысыңыз.',
+        'form-validation-name': 'Аты-жөніңізді енгізіңіз',
+        'form-validation-email': 'Дұрыс электрондық поштаны енгізіңіз',
+        'form-validation-organization': 'Ұйымыңызды енгізіңіз',
+        'form-validation-role': 'Рөліңізді таңдаңыз',
+        'form-validation-format': 'Қатысу форматын таңдаңыз',
+        'form-validation-topic': 'Доклад тақырыбын көрсетіңіз',
         
         // Contacts section
         'contacts-title': 'Байланыс',
-        'contacts-text': 'Email: conf@example.edu • Мекен-жайы: Алматы қ.',
+        'contacts-text1': '📍 Мекенжай: Алматы к., Розыбакиева көш., 227, 253-кабинет',
+        'contacts-text2': '📱 Телефон: +7 701 761 9108',
+        'contacts-text3': '📧 E-mail: deai.almau.edu.kz',
+        'contacts-text4': '🌐 Сайт: https://almau.edu.kz',
         
         // Footer
-        'footer-text': '© Ұйымдастырушылар — AlmaU'
+        'footer-text': '© Ұйымдастырушылар — AlmaU',
+        
+        // Speakers button
+        'show-more-speakers': 'Көбірек көрсету',
+        'show-less-speakers': 'Азырақ көрсету'
     },
     
     en: {
@@ -132,25 +180,49 @@ const translations = {
         'speakers-title': 'Speakers',
         'speaker-1-name': 'Ivan Ivanov',
         'speaker-1-bio': 'Short biography.',
-    
         
         // Registration section
         'registration-title': 'Registration',
-        'registration-desc': 'Fill out the form to register for the conference.',
-        'label-name': 'Name',
+        'registration-desc': 'Fill out the form below to participate in the conference',
+        'label-name': 'Full Name',
         'label-email': 'Email',
-        'label-affiliation': 'Organization',
-        'submit-btn': 'Submit',
-        'reset-btn': 'Clear',
-        'form-success': 'Thank you! Temporary form: data will not be saved.',
-        'form-hint': 'This is a placeholder — replace with Google Forms later.',
+        'label-phone': 'Phone',
+        'label-country': 'Country',
+        'label-organization': 'Organization / University',
+        'label-role': 'Role',
+        'label-format': 'Participation Format',
+        'label-topic': 'Presentation Topic',
+        'label-comments': 'Additional Comments',
+        'role-participant': 'Participant',
+        'role-speaker': 'Speaker',
+        'role-student': 'Student',
+        'role-teacher': 'Teacher',
+        'format-online': 'Online',
+        'format-offline': 'Offline',
+        'submit-btn': 'Register',
+        'submit-loading': 'Submitting...',
+        'form-success': '✅ Registration completed successfully! We sent a confirmation to your email.',
+        'form-error': '❌ An error occurred while submitting the form. Please try again or contact us directly.',
+        'form-validation-name': 'Please enter your full name',
+        'form-validation-email': 'Please enter a valid email',
+        'form-validation-organization': 'Please enter your organization',
+        'form-validation-role': 'Please select your role',
+        'form-validation-format': 'Please select participation format',
+        'form-validation-topic': 'Please specify presentation topic',
         
         // Contacts section
         'contacts-title': 'Contacts',
-        'contacts-text': 'Email: conf@example.edu • Address: Almaty',
+        'contacts-text1': '📍 Address: Almaty, Rozybakiev st., 227, office 253',
+        'contacts-text2': '📱 Phone: +7 701 761 9108',
+        'contacts-text3': '📧 E-mail: deai.almau.edu.kz',
+        'contacts-text4': '🌐 Website: https://almau.edu.kz',
         
         // Footer
-        'footer-text': '© Organizers — AlmaU'
+        'footer-text': '© Organizers — AlmaU',
+        
+        // Speakers button
+        'show-more-speakers': 'Show more',
+        'show-less-speakers': 'Show less'
     }
 };
 
@@ -187,99 +259,72 @@ function changeLanguage(lang) {
     localStorage.setItem('preferred-language', lang);
 }
 
-// Функция для обработки отправки формы
-// function handleDummySubmit(event) {
-   // event.preventDefault();
-  //  const feedback = document.getElementById('form-feedback');
- //   feedback.hidden = false;
- //   feedback.textContent = translations[currentLang]['form-success'];
+// Функция для показа сообщений формы
+function showFormMessage(message, type = 'success') {
+    const formMessages = document.getElementById('form-messages');
+    if (!formMessages) return;
     
-    // Очищаем форму
-//    event.target.reset();
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}`;
+    messageDiv.textContent = message;
+    formMessages.appendChild(messageDiv);
     
-    // Скрываем сообщение через 5 секунд
-//    setTimeout(() => {
-//        feedback.hidden = true;
-//    }, 5000);
-//}
-
-// === GOOGLE SHEETS FORM SUBMISSION ===
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('conference-form');
-  const status = document.getElementById('form-status');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    status.textContent = 'Отправка...';
-    status.style.color = '#555';
-
-    const data = Object.fromEntries(new FormData(form).entries());
-
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbz66PWXogEpyQEmTO4_NzptJogptrhyB5CsQYphaVYOws-zta6yAKitQpPIvbf7BIOVQQ/exec', { 
-        // ⬆️ вставь сюда свой URL из Google Apps Script https://script.google.com/macros/s/AKfycbz66PWXogEpyQEmTO4_NzptJogptrhyB5CsQYphaVYOws-zta6yAKitQpPIvbf7BIOVQQ/exec
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      const result = await response.json();
-
-      if (result.result === 'success') {
-        status.textContent = '✅ Регистрация успешно отправлена!';
-        status.style.color = 'green';
-        form.reset();
-      } else {
-        status.textContent = '⚠️ Ошибка при отправке. Попробуйте позже.';
-        status.style.color = 'orange';
-      }
-    } catch (err) {
-      console.error('Ошибка:', err);
-      status.textContent = '❌ Ошибка соединения. Проверьте интернет или попробуйте позже.';
-      status.style.color = 'red';
-    }
-  });
-});
-
-
-// === Formspree: обработка регистрации ===
-const form = document.getElementById('registration-form');
-const successMsg = document.getElementById('form-success');
-
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        form.reset();
-        successMsg.textContent = translations[currentLang]['form-success'];
-        successMsg.style.display = 'block';
-        successMsg.style.opacity = 0;
-        successMsg.style.transition = 'opacity 0.6s';
-        setTimeout(() => successMsg.style.opacity = 1, 50);
-        setTimeout(() => {
-          successMsg.style.opacity = 0;
-          setTimeout(() => successMsg.style.display = 'none', 600);
-        }, 5000);
-      } else {
-        alert('Ошибка при отправке. Попробуйте позже.');
-      }
-    } catch (err) {
-      alert('Сетевая ошибка. Проверьте интернет.');
-    }
-  });
+    // Автоматически скрываем сообщение через 5 секунд
+    setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        setTimeout(() => messageDiv.remove(), 300);
+    }, 5000);
 }
 
-// Инициализация при загрузке страницы
+// Функция для очистки сообщений формы
+function clearFormMessages() {
+    const formMessages = document.getElementById('form-messages');
+    if (formMessages) {
+        formMessages.innerHTML = '';
+    }
+}
+
+// Функция для валидации email
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Функция для валидации формы
+function validateForm(formData) {
+    if (!formData.name.trim()) {
+        showFormMessage(translations[currentLang]['form-validation-name'], 'error');
+        return false;
+    }
+    
+    if (!formData.email.trim() || !isValidEmail(formData.email)) {
+        showFormMessage(translations[currentLang]['form-validation-email'], 'error');
+        return false;
+    }
+    
+    if (!formData.organization.trim()) {
+        showFormMessage(translations[currentLang]['form-validation-organization'], 'error');
+        return false;
+    }
+    
+    if (!formData.role) {
+        showFormMessage(translations[currentLang]['form-validation-role'], 'error');
+        return false;
+    }
+    
+    if (!formData.format) {
+        showFormMessage(translations[currentLang]['form-validation-format'], 'error');
+        return false;
+    }
+    
+    if (formData.role === 'Докладчик' && !formData.topic.trim()) {
+        showFormMessage(translations[currentLang]['form-validation-topic'], 'error');
+        return false;
+    }
+    
+    return true;
+}
+
+// Основная функция инициализации
 document.addEventListener('DOMContentLoaded', function() {
     // Восстанавливаем сохраненный язык или используем русский по умолчанию
     const savedLang = localStorage.getItem('preferred-language') || 'ru';
@@ -306,38 +351,165 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
 
+    // ===== ОБРАБОТКА ФОРМЫ РЕГИСТРАЦИИ =====
+    const registrationForm = document.getElementById('registration-form');
+    const roleSelect = document.getElementById('role');
+    const topicField = document.getElementById('topic-field');
+    const topicInput = document.getElementById('topic');
 
-
-
-// Speakers show more/less
-const showMoreBtn = document.getElementById('show-more-speakers');
-const addlCards = document.querySelectorAll('#speakers-list .addl');
-let expanded = false;
-
-showMoreBtn.addEventListener('click', () => {
-  expanded = !expanded;
-  addlCards.forEach(el => el.style.display = expanded ? 'block' : 'none');
-  showMoreBtn.textContent = expanded ? 'Показать меньше' : 'Показать больше';
-});
-
-document.querySelectorAll('.info-toggle').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const block = btn.closest('.info-block');
-    block.classList.toggle('open');
-    btn.classList.toggle('active');
-  });
-});
-
-document.querySelectorAll('.info-toggle').forEach(btn => {
-  btn.addEventListener('click', function() {
-    // Найти ближайший соседний .info-content после кнопки
-    const content = btn.nextElementSibling;
-    if (content && content.classList.contains('info-content')) {
-      content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-      btn.classList.toggle('active');
+    // Показ/скрытие поля темы для докладчиков
+    if (roleSelect && topicField) {
+        roleSelect.addEventListener('change', function() {
+            if (this.value === 'Докладчик') {
+                topicField.style.display = 'block';
+                topicInput.required = true;
+            } else {
+                topicField.style.display = 'none';
+                topicInput.required = false;
+                topicInput.value = '';
+            }
+        });
     }
-  });
+
+    // Обработка отправки формы регистрации
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            // Показываем индикатор загрузки
+            if (btnText && btnLoading) {
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline';
+            }
+            submitBtn.disabled = true;
+            
+            // Очищаем предыдущие сообщения
+            clearFormMessages();
+            
+            try {
+                // Собираем данные формы
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Валидация формы
+                if (!validateForm(data)) {
+                    return;
+                }
+                
+                // URL вашего Google Apps Script (замените на ваш)
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz66PWXogEpyQEmTO4_NzptJogptrhyB5CsQYphaVYOws-zta6yAKitQpPIvbf7BIOVQQ/exec';
+                
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success || result.result === 'success') {
+                    showFormMessage(translations[currentLang]['form-success'], 'success');
+                    registrationForm.reset();
+                    if (topicField) topicField.style.display = 'none';
+                } else {
+                    throw new Error(result.error || 'Ошибка при отправке формы');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showFormMessage(translations[currentLang]['form-error'], 'error');
+            } finally {
+                // Восстанавливаем кнопку
+                if (btnText && btnLoading) {
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                }
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    // Валидация телефона
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('7') || value.startsWith('8')) {
+                value = value.substring(1);
+            }
+            
+            let formattedValue = '+7';
+            if (value.length > 0) {
+                formattedValue += ' (' + value.substring(0, 3);
+            }
+            if (value.length > 3) {
+                formattedValue += ') ' + value.substring(3, 6);
+            }
+            if (value.length > 6) {
+                formattedValue += '-' + value.substring(6, 8);
+            }
+            if (value.length > 8) {
+                formattedValue += '-' + value.substring(8, 10);
+            }
+            
+            e.target.value = formattedValue;
+        });
+    }
+
+    // ===== SPEAKERS SHOW MORE/LESS =====
+    const showMoreBtn = document.getElementById('show-more-speakers');
+    const addlCards = document.querySelectorAll('#speakers-list .addl');
+    let expanded = false;
+
+    if (showMoreBtn && addlCards.length > 0) {
+        showMoreBtn.addEventListener('click', () => {
+            expanded = !expanded;
+            addlCards.forEach(el => el.style.display = expanded ? 'block' : 'none');
+            showMoreBtn.textContent = expanded ? 
+                translations[currentLang]['show-less-speakers'] : 
+                translations[currentLang]['show-more-speakers'];
+        });
+    }
+
+    // ===== INFO TOGGLE BUTTONS =====
+    document.querySelectorAll('.info-toggle').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('info-content')) {
+                content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+                this.classList.toggle('active');
+            }
+        });
+    });
 });
 
+// Обновляем локализацию для кнопки спикеров при смене языка
+function updateSpeakersButton() {
+    const showMoreBtn = document.getElementById('show-more-speakers');
+    const addlCards = document.querySelectorAll('#speakers-list .addl');
+    let expanded = false;
+    
+    if (showMoreBtn) {
+        // Проверяем, открыты ли дополнительные карточки
+        if (addlCards.length > 0) {
+            expanded = addlCards[0].style.display === 'block';
+        }
+        
+        showMoreBtn.textContent = expanded ? 
+            translations[currentLang]['show-less-speakers'] : 
+            translations[currentLang]['show-more-speakers'];
+    }
+}
+
+// Переопределяем changeLanguage для обновления кнопки спикеров
+const originalChangeLanguage = changeLanguage;
+changeLanguage = function(lang) {
+    originalChangeLanguage(lang);
+    updateSpeakersButton();
+};
