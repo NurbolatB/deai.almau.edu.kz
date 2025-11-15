@@ -399,117 +399,134 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Обработка отправки формы регистрации
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', async function(e) {
-            console.log('🔄 Начало обработки отправки формы');
-            e.preventDefault();
+   
+    // Обработка отправки формы регистрации через Static Forms
+if (registrationForm) {
+    registrationForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        
+        // Показываем индикатор загрузки
+        if (btnText && btnLoading) {
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+        }
+        submitBtn.disabled = true;
+        
+        // Очищаем предыдущие сообщения
+        clearFormMessages();
+        
+        try {
+            // Собираем данные формы
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
             
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const btnText = submitBtn.querySelector('.btn-text');
-            const btnLoading = submitBtn.querySelector('.btn-loading');
+            console.log('📦 Собранные данные формы:', data);
             
-            // Показываем индикатор загрузки
-            console.log('⏳ Показываем индикатор загрузки');
+            // Валидация формы
+            if (!validateForm(data)) {
+                return;
+            }
+            
+            // Static Forms URL
+            const STATIC_FORMS_URL = 'https://api.staticforms.xyz/submit';
+            console.log('🌐 Отправка запроса на Static Forms...');
+            
+            // Отправляем запрос в Static Forms
+            const response = await fetch(STATIC_FORMS_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    accessKey: 'sf_j27hb35jef312k9f826af130',
+                    subject: 'Регистрация на конференцию DEAI',
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone || '',
+                    country: data.country || '',
+                    organization: data.organization,
+                    role: data.role,
+                    format: data.format,
+                    topic: data.topic || '',
+                    comments: data.comments || '',
+                    replyTo: '@', // Ответить отправителю
+                    redirectTo: 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html'
+                })
+            });
+            
+            console.log('📨 Статус ответа:', response.status);
+            
+            const result = await response.json();
+            console.log('📊 Ответ от Static Forms:', result);
+            
+            if (result.success) {
+                console.log('✅ Успешная отправка через Static Forms');
+                showFormMessage(translations[currentLang]['form-success'], 'success');
+                registrationForm.reset();
+                if (topicField) {
+                    topicField.style.display = 'none';
+                }
+                
+                // Резервный редирект
+                setTimeout(() => {
+                    window.location.href = 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html';
+                }, 2000);
+            } else {
+                throw new Error(result.message || 'Ошибка отправки через Static Forms');
+            }
+            
+        } catch (error) {
+            console.error('💥 Ошибка при отправке:', error);
+            
+            // Альтернативное решение - открыть почтовый клиент
+            console.log('🔄 Пробуем альтернативный метод...');
+            sendViaEmail(data);
+            
+        } finally {
+            // Восстанавливаем кнопку
             if (btnText && btnLoading) {
-                btnText.style.display = 'none';
-                btnLoading.style.display = 'inline';
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
             }
-            submitBtn.disabled = true;
-            
-            // Очищаем предыдущие сообщения
-            clearFormMessages();
-            
-            try {
-                // Собираем данные формы
-                const formData = new FormData(this);
-                const data = Object.fromEntries(formData);
-                
-                console.log('📦 Собранные данные формы:', data);
-                
-                // Валидация формы
-                if (!validateForm(data)) {
-                    console.log('❌ Валидация не пройдена, прерываем отправку');
-                    return;
-                }
-                
-                // URL для отправки
-                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwPIeB6WikHnZAjfAUtRYSJhKGYkckJiv5diWE7nJaqD47JD81XipMmaAh1o1fBA1I2Iw/exec';
-                console.log('🌐 Отправка запроса на:', SCRIPT_URL);
-                
-                // Отправляем запрос
-                console.log('📤 Отправка POST запроса...');
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                console.log('📨 Получен ответ:', {
-                    status: response.status,
-                    statusText: response.statusText,
-                    ok: response.ok,
-                    headers: Object.fromEntries(response.headers.entries())
-                });
-                
-                // Пытаемся прочитать ответ
-                let result;
-                try {
-                    const responseText = await response.text();
-                    console.log('📄 Текст ответа:', responseText);
-                    
-                    // Пытаемся распарсить JSON
-                    result = JSON.parse(responseText);
-                    console.log('📊 Парсинг JSON успешен:', result);
-                } catch (parseError) {
-                    console.error('❌ Ошибка парсинга JSON:', parseError);
-                    throw new Error('Неверный формат ответа от сервера');
-                }
-                
-                if (result.success || result.result === 'success') {
-                    console.log('✅ Успешная отправка формы');
-                    showFormMessage(translations[currentLang]['form-success'], 'success');
-                    registrationForm.reset();
-                    if (topicField) {
-                        topicField.style.display = 'none';
-                    }
-                } else {
-                    console.error('❌ Ошибка от сервера:', result);
-                    throw new Error(result.error || result.message || 'Ошибка при отправке формы');
-                }
-                
-            } catch (error) {
-                console.error('💥 Критическая ошибка при отправке формы:', {
-                    name: error.name,
-                    message: error.message,
-                    stack: error.stack
-                });
-                
-                // Детальный анализ ошибки
-                if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-                    console.error('🌐 Сетевая ошибка: Проверьте интернет соединение и CORS настройки');
-                    showFormMessage('❌ Ошибка сети. Проверьте интернет соединение.', 'error');
-                } else if (error.name === 'SyntaxError') {
-                    console.error('📄 Ошибка парсинга: Сервер вернул невалидный JSON');
-                    showFormMessage('❌ Ошибка сервера. Попробуйте позже.', 'error');
-                } else {
-                    console.error('❌ Другая ошибка:', error);
-                    showFormMessage(translations[currentLang]['form-error'], 'error');
-                }
-            } finally {
-                console.log('🔄 Восстанавливаем состояние кнопки');
-                // Восстанавливаем кнопку
-                if (btnText && btnLoading) {
-                    btnText.style.display = 'inline';
-                    btnLoading.style.display = 'none';
-                }
-                submitBtn.disabled = false;
-            }
-        });
-    } else {
-        console.error('❌ Форма регистрации не найдена! Проверьте ID элемента');
-    }
+            submitBtn.disabled = false;
+        }
+    });
+}
+
+// Альтернативный метод через почтовый клиент
+function sendViaEmail(formData) {
+    const subject = 'Регистрация на конференцию DEAI';
+    const body = `
+Новая регистрация на конференцию:
+
+ФИО: ${formData.name}
+Email: ${formData.email}
+Телефон: ${formData.phone || 'Не указан'}
+Страна: ${formData.country || 'Не указана'}
+Организация: ${formData.organization}
+Роль: ${formData.role}
+Формат участия: ${formData.format}
+${formData.topic ? `Тема доклада: ${formData.topic}` : ''}
+Комментарии: ${formData.comments || 'Нет'}
+
+Отправлено с сайта: ${window.location.href}
+    `;
+    
+    const mailtoLink = `mailto:decai@almau.edu.kz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Показываем инструкцию
+    showFormMessage('📧 Открывается почтовый клиент. Пожалуйста, отправьте письмо для завершения регистрации.', 'info');
+    
+    // Открываем почтовый клиент
+    setTimeout(() => {
+        window.location.href = mailtoLink;
+    }, 1000);
+}
+    
 
     // Валидация телефона
     const phoneInput = document.getElementById('phone');
