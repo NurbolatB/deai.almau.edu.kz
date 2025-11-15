@@ -60,9 +60,6 @@ const translations = {
         'form-validation-format': 'Пожалуйста, выберите формат участия',
         'form-validation-topic': 'Пожалуйста, укажите тему доклада',
 
-      
-
-        
         // Contacts section
         'contacts-title': 'Контакты',
         'contacts-text1': '📍 Адрес: г. Алматы, ул. Розыбакиева, 227, кабинет 253',
@@ -336,6 +333,65 @@ function validateForm(formData) {
     return true;
 }
 
+// Альтернативный метод через почтовый клиент
+function sendViaEmail(formData) {
+    const subject = 'Регистрация на конференцию DEAI';
+    const body = `
+НОВАЯ РЕГИСТРАЦИЯ НА КОНФЕРЕНЦИЮ
+"Digitalization of Education in the Era of AI"
+
+👤 ДАННЫЕ УЧАСТНИКА:
+• ФИО: ${formData.name}
+• Email: ${formData.email}
+• Телефон: ${formData.phone || 'Не указан'}
+• Страна: ${formData.country || 'Не указана'}
+• Организация: ${formData.organization}
+
+🎯 ИНФОРМАЦИЯ ОБ УЧАСТИИ:
+• Роль: ${formData.role}
+• Формат участия: ${formData.format}
+${formData.topic ? `• Тема доклада: ${formData.topic}` : ''}
+
+💬 КОММЕНТАРИИ:
+${formData.comments || 'Отсутствуют'}
+
+---
+Отправлено с сайта: ${window.location.href}
+Время: ${new Date().toLocaleString()}
+    `;
+    
+    const mailtoLink = `mailto:decai@almau.edu.kz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Открываем почтовый клиент
+    window.location.href = mailtoLink;
+}
+
+// Обновляем локализацию для кнопки спикеров при смене языка
+function updateSpeakersButton() {
+    const showMoreBtn = document.getElementById('show-more-speakers');
+    const addlCards = document.querySelectorAll('#speakers-list .addl');
+    let expanded = false;
+    
+    if (showMoreBtn) {
+        // Проверяем, открыты ли дополнительные карточки
+        if (addlCards.length > 0) {
+            expanded = addlCards[0].style.display === 'block';
+        }
+        
+        showMoreBtn.textContent = expanded ? 
+            translations[currentLang]['show-less-speakers'] : 
+            translations[currentLang]['show-more-speakers'];
+    }
+}
+
+// Переопределяем changeLanguage для обновления кнопки спикеров
+const originalChangeLanguage = changeLanguage;
+changeLanguage = function(lang) {
+    console.log('🔄 Обновление языка и кнопки спикеров');
+    originalChangeLanguage(lang);
+    updateSpeakersButton();
+};
+
 // Основная функция инициализации
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Инициализация приложения...');
@@ -369,193 +425,213 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    
-    
-    
-    // ===== ОБРАБОТКА ФОРМЫ РЕГИСТРАЦИИ ЧЕРЕЗ STATIC FORMS =====
-const registrationForm = document.getElementById('registration-form');
-const roleSelect = document.getElementById('role');
-const topicField = document.getElementById('topic-field');
-const topicInput = document.getElementById('topic');
+    // ===== ОБРАБОТКА ФОРМЫ РЕГИСТРАЦИИ =====
+    const registrationForm = document.getElementById('registration-form');
+    const roleSelect = document.getElementById('role');
+    const topicField = document.getElementById('topic-field');
+    const topicInput = document.getElementById('topic');
 
-// Показ/скрытие поля темы для докладчиков
-if (roleSelect && topicField) {
-    roleSelect.addEventListener('change', function() {
-        if (this.value === 'Докладчик') {
-            topicField.style.display = 'block';
-            topicInput.required = true;
-        } else {
-            topicField.style.display = 'none';
-            topicInput.required = false;
-            topicInput.value = '';
-        }
+    console.log('📝 Инициализация формы регистрации:', {
+        form: registrationForm ? 'найдена' : 'не найдена',
+        roleSelect: roleSelect ? 'найден' : 'не найден',
+        topicField: topicField ? 'найдено' : 'не найдено'
     });
-}
 
-// Обработка отправки формы регистрации
-if (registrationForm) {
-    registrationForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const btnText = submitBtn.querySelector('.btn-text');
-        const btnLoading = submitBtn.querySelector('.btn-loading');
-        
-        // Показываем индикатор загрузки
-        if (btnText && btnLoading) {
-            btnText.style.display = 'none';
-            btnLoading.style.display = 'inline';
-        }
-        submitBtn.disabled = true;
-        
-        // Очищаем предыдущие сообщения
-        clearFormMessages();
-        
-        try {
-            // Собираем данные формы
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            console.log('📦 Собранные данные формы:', data);
-            
-            // Валидация формы (только основные поля)
-            if (!data.name || !data.name.trim()) {
-                showFormMessage('Пожалуйста, введите ФИО', 'error');
-                return;
+    // Показ/скрытие поля темы для докладчиков
+    if (roleSelect && topicField) {
+        roleSelect.addEventListener('change', function() {
+            console.log('🎭 Изменение роли:', this.value);
+            if (this.value === 'Докладчик') {
+                console.log('📢 Показываем поле темы доклада');
+                topicField.style.display = 'block';
+                topicInput.required = true;
+            } else {
+                console.log('👤 Скрываем поле темы доклада');
+                topicField.style.display = 'none';
+                topicInput.required = false;
+                topicInput.value = '';
             }
-            if (!data.email || !data.email.trim() || !isValidEmail(data.email)) {
-                showFormMessage('Пожалуйста, введите корректный email', 'error');
-                return;
+        });
+    }
+
+    // Обработка отправки формы регистрации
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            // Показываем индикатор загрузки
+            console.log('⏳ Показываем индикатор загрузки');
+            if (btnText && btnLoading) {
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline';
             }
-            if (!data.organization || !data.organization.trim()) {
-                showFormMessage('Пожалуйста, введите организацию', 'error');
-                return;
-            }
-            if (!data.role) {
-                showFormMessage('Пожалуйста, выберите роль', 'error');
-                return;
-            }
-            if (!data.format) {
-                showFormMessage('Пожалуйста, выберите формат участия', 'error');
-                return;
-            }
-            if (data.role === 'Докладчик' && (!data.topic || !data.topic.trim())) {
-                showFormMessage('Пожалуйста, укажите тему доклада', 'error');
-                return;
-            }
+            submitBtn.disabled = true;
             
-            console.log('✅ Валидация прошла успешно');
+            // Очищаем предыдущие сообщения
+            clearFormMessages();
             
-            // Static Forms URL
-            const STATIC_FORMS_URL = 'https://api.staticforms.xyz/submit';
-            console.log('🌐 Отправка запроса на Static Forms...');
-            
-            // Подготавливаем данные для Static Forms
-            const staticFormsData = {
-                accessKey: 'sf_j27hb35jef312k9f826af132',
-                subject: 'Регистрация на конференцию DEAI',
-                name: data.name,
-                email: data.email,
-                phone: data.phone || '',
-                country: data.country || '',
-                organization: data.organization,
-                role: data.role,
-                format: data.format,
-                topic: data.topic || '',
-                comments: data.comments || '',
-                replyTo: '@', // Ответить отправителю
-                redirectTo: 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html'
-            };
-            
-            console.log('📤 Отправляемые данные:', staticFormsData);
-            
-            // Отправляем запрос в Static Forms
-            const response = await fetch(STATIC_FORMS_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(staticFormsData)
-            });
-            
-            console.log('📨 Статус ответа:', response.status);
-            console.log('📨 Ответ OK:', response.ok);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const result = await response.json();
-            console.log('📊 Ответ от Static Forms:', result);
-            
-            if (result.success) {
-                console.log('✅ Успешная отправка через Static Forms');
-                showFormMessage('✅ Регистрация прошла успешно! Перенаправляем...', 'success');
-                registrationForm.reset();
-                if (topicField) {
-                    topicField.style.display = 'none';
+            try {
+                // Собираем данные формы
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                console.log('📦 Собранные данные формы:', data);
+                
+                // Валидация формы
+                if (!validateForm(data)) {
+                    console.log('❌ Валидация не пройдена, прерываем отправку');
+                    return;
                 }
                 
-                // Резервный редирект
+                console.log('✅ Валидация прошла успешно');
+                
+                // Static Forms URL
+                const STATIC_FORMS_URL = 'https://api.staticforms.xyz/submit';
+                console.log('🌐 Отправка запроса на Static Forms...');
+                
+                // Подготавливаем данные для Static Forms
+                const staticFormsData = {
+                    accessKey: 'sf_j27hb35jef312k9f826af132',
+                    subject: 'Регистрация на конференцию DEAI',
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone || '',
+                    country: data.country || '',
+                    organization: data.organization,
+                    role: data.role,
+                    format: data.format,
+                    topic: data.topic || '',
+                    comments: data.comments || '',
+                    replyTo: '@',
+                    redirectTo: 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html'
+                };
+                
+                console.log('📤 Отправляемые данные:', staticFormsData);
+                
+                // Отправляем запрос в Static Forms
+                const response = await fetch(STATIC_FORMS_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(staticFormsData)
+                });
+                
+                console.log('📨 Статус ответа:', response.status);
+                console.log('📨 Ответ OK:', response.ok);
+                
+                // Читаем полный ответ для отладки
+                const responseText = await response.text();
+                console.log('📄 Полный текст ответа:', responseText);
+                
+                if (!response.ok) {
+                    // Пытаемся распарсить ошибку
+                    try {
+                        const errorResult = JSON.parse(responseText);
+                        console.error('❌ Ошибка от Static Forms:', errorResult);
+                        throw new Error(errorResult.message || `HTTP error! status: ${response.status}`);
+                    } catch (parseError) {
+                        throw new Error(`HTTP error! status: ${response.status}. Response: ${responseText}`);
+                    }
+                }
+                
+                const result = JSON.parse(responseText);
+                console.log('📊 Ответ от Static Forms:', result);
+                
+                if (result.success) {
+                    console.log('✅ Успешная отправка через Static Forms');
+                    showFormMessage('✅ Регистрация прошла успешно! Перенаправляем...', 'success');
+                    registrationForm.reset();
+                    if (topicField) {
+                        topicField.style.display = 'none';
+                    }
+                    
+                    // Автоматический редирект через 2 секунды
+                    setTimeout(() => {
+                        window.location.href = 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html';
+                    }, 2000);
+                    
+                } else {
+                    throw new Error(result.message || 'Ошибка отправки через Static Forms');
+                }
+                
+            } catch (error) {
+                console.error('💥 Ошибка при отправке:', error);
+                
+                // Резервное решение - сохраняем локально и предлагаем email
+                console.log('🔄 Используем резервный метод...');
+                
+                // Сохраняем в localStorage
+                const submissions = JSON.parse(localStorage.getItem('conferenceRegistrations') || '[]');
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                submissions.push({
+                    ...data,
+                    timestamp: new Date().toISOString(),
+                    id: Date.now()
+                });
+                localStorage.setItem('conferenceRegistrations', JSON.stringify(submissions));
+                
+                console.log('💾 Данные сохранены локально');
+                
+                showFormMessage('✅ Данные сохранены! Хотите отправить подтверждение на почту?', 'info');
+                
+                // Предлагаем отправить email
                 setTimeout(() => {
-                    window.location.href = 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html';
-                }, 2000);
-            } else {
-                throw new Error(result.message || 'Ошибка отправки через Static Forms');
+                    const shouldSendEmail = confirm('Отправить подтверждение на почту организатора?');
+                    if (shouldSendEmail) {
+                        sendViaEmail(data);
+                    } else {
+                        // Перенаправляем на страницу успеха
+                        window.location.href = 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html';
+                    }
+                }, 1000);
+                
+            } finally {
+                console.log('🔄 Восстанавливаем состояние кнопки');
+                // Восстанавливаем кнопку
+                if (btnText && btnLoading) {
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                }
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    // Валидация телефона
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            console.log('📞 Форматирование телефона:', e.target.value);
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('7') || value.startsWith('8')) {
+                value = value.substring(1);
             }
             
-        } catch (error) {
-            console.error('💥 Ошибка при отправке:', error);
-            
-            // Альтернативное решение - открыть почтовый клиент
-            console.log('🔄 Пробуем альтернативный метод через email...');
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            sendViaEmail(data);
-            
-        } finally {
-            // Восстанавливаем кнопку
-            if (btnText && btnLoading) {
-                btnText.style.display = 'inline';
-                btnLoading.style.display = 'none';
+            let formattedValue = '+7';
+            if (value.length > 0) {
+                formattedValue += ' (' + value.substring(0, 3);
             }
-            submitBtn.disabled = false;
-        }
-    });
-}
-
-// Альтернативный метод через почтовый клиент
-function sendViaEmail(formData) {
-    const subject = 'Регистрация на конференцию DEAI';
-    const body = `
-Новая регистрация на конференцию "Digitalization of Education in the Era of AI":
-
-ФИО: ${formData.name}
-Email: ${formData.email}
-Телефон: ${formData.phone || 'Не указан'}
-Страна: ${formData.country || 'Не указана'}
-Организация: ${formData.organization}
-Роль: ${formData.role}
-Формат участия: ${formData.format}
-${formData.topic ? `Тема доклада: ${formData.topic}` : ''}
-Комментарии: ${formData.comments || 'Нет'}
-
-Отправлено с сайта: ${window.location.href}
-    `;
-    
-    const mailtoLink = `mailto:decai@almau.edu.kz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Показываем инструкцию
-    showFormMessage('📧 Открывается почтовый клиент. Пожалуйста, отправьте письмо для завершения регистрации.', 'info');
-    
-    // Открываем почтовый клиент
-    setTimeout(() => {
-        window.location.href = mailtoLink;
-    }, 1500);
-}
-    
-
-    
+            if (value.length > 3) {
+                formattedValue += ') ' + value.substring(3, 6);
+            }
+            if (value.length > 6) {
+                formattedValue += '-' + value.substring(6, 8);
+            }
+            if (value.length > 8) {
+                formattedValue += '-' + value.substring(8, 10);
+            }
+            
+            e.target.value = formattedValue;
+            console.log('📞 Отформатированный телефон:', formattedValue);
+        });
+    }
 
     // ===== SPEAKERS SHOW MORE/LESS =====
     const showMoreBtn = document.getElementById('show-more-speakers');
@@ -592,29 +668,3 @@ ${formData.topic ? `Тема доклада: ${formData.topic}` : ''}
 
     console.log('✅ Инициализация завершена');
 });
-
-// Обновляем локализацию для кнопки спикеров при смене языка
-function updateSpeakersButton() {
-    const showMoreBtn = document.getElementById('show-more-speakers');
-    const addlCards = document.querySelectorAll('#speakers-list .addl');
-    let expanded = false;
-    
-    if (showMoreBtn) {
-        // Проверяем, открыты ли дополнительные карточки
-        if (addlCards.length > 0) {
-            expanded = addlCards[0].style.display === 'block';
-        }
-        
-        showMoreBtn.textContent = expanded ? 
-            translations[currentLang]['show-less-speakers'] : 
-            translations[currentLang]['show-more-speakers'];
-    }
-}
-
-// Переопределяем changeLanguage для обновления кнопки спикеров
-const originalChangeLanguage = changeLanguage;
-changeLanguage = function(lang) {
-    console.log('🔄 Обновление языка и кнопки спикеров');
-    originalChangeLanguage(lang);
-    updateSpeakersButton();
-};
