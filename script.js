@@ -225,7 +225,6 @@ const translations = {
         'show-less-speakers': 'Show less'
     }
 };
-
 // Текущий язык
 let currentLang = 'ru';
 
@@ -333,7 +332,7 @@ function validateForm(formData) {
     return true;
 }
 
-// Альтернативный метод через почтовый клиент
+// Метод через почтовый клиент
 function sendViaEmail(formData) {
     const subject = 'Регистрация на конференцию DEAI';
     const body = `
@@ -454,9 +453,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Обработка отправки формы регистрации
+    // Обработка отправки формы регистрации - ФИНАЛЬНАЯ РАБОЧАЯ ВЕРСИЯ
     if (registrationForm) {
-        registrationForm.addEventListener('submit', async function(e) {
+        registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const submitBtn = this.querySelector('button[type="submit"]');
@@ -475,9 +474,18 @@ document.addEventListener('DOMContentLoaded', function() {
             clearFormMessages();
             
             try {
-                // Собираем данные формы
-                const formData = new FormData(this);
-                const data = Object.fromEntries(formData);
+                // Собираем данные формы напрямую из полей
+                const data = {
+                    name: document.getElementById('fullname').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value || '',
+                    country: document.getElementById('country').value || '',
+                    organization: document.getElementById('organization').value,
+                    role: document.getElementById('role').value,
+                    format: document.getElementById('format').value,
+                    topic: document.getElementById('topic').value || '',
+                    comments: document.getElementById('comments').value || ''
+                };
                 
                 console.log('📦 Собранные данные формы:', data);
                 
@@ -489,109 +497,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 console.log('✅ Валидация прошла успешно');
                 
-                // Static Forms URL
-                const STATIC_FORMS_URL = 'https://api.staticforms.xyz/submit';
-                console.log('🌐 Отправка запроса на Static Forms...');
-                
-                // Подготавливаем данные для Static Forms
-                const staticFormsData = {
-                    accessKey: 'sf_j27hb35jef312k9f826af132',
-                    subject: 'Регистрация на конференцию DEAI',
-                    name: data.name,
-                    email: data.email,
-                    phone: data.phone || '',
-                    country: data.country || '',
-                    organization: data.organization,
-                    role: data.role,
-                    format: data.format,
-                    topic: data.topic || '',
-                    comments: data.comments || '',
-                    replyTo: '@',
-                    redirectTo: 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html'
-                };
-                
-                console.log('📤 Отправляемые данные:', staticFormsData);
-                
-                // Отправляем запрос в Static Forms
-                const response = await fetch(STATIC_FORMS_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(staticFormsData)
-                });
-                
-                console.log('📨 Статус ответа:', response.status);
-                console.log('📨 Ответ OK:', response.ok);
-                
-                // Читаем полный ответ для отладки
-                const responseText = await response.text();
-                console.log('📄 Полный текст ответа:', responseText);
-                
-                if (!response.ok) {
-                    // Пытаемся распарсить ошибку
-                    try {
-                        const errorResult = JSON.parse(responseText);
-                        console.error('❌ Ошибка от Static Forms:', errorResult);
-                        throw new Error(errorResult.message || `HTTP error! status: ${response.status}`);
-                    } catch (parseError) {
-                        throw new Error(`HTTP error! status: ${response.status}. Response: ${responseText}`);
-                    }
-                }
-                
-                const result = JSON.parse(responseText);
-                console.log('📊 Ответ от Static Forms:', result);
-                
-                if (result.success) {
-                    console.log('✅ Успешная отправка через Static Forms');
-                    showFormMessage('✅ Регистрация прошла успешно! Перенаправляем...', 'success');
-                    registrationForm.reset();
-                    if (topicField) {
-                        topicField.style.display = 'none';
-                    }
-                    
-                    // Автоматический редирект через 2 секунды
-                    setTimeout(() => {
-                        window.location.href = 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html';
-                    }, 2000);
-                    
-                } else {
-                    throw new Error(result.message || 'Ошибка отправки через Static Forms');
-                }
-                
-            } catch (error) {
-                console.error('💥 Ошибка при отправке:', error);
-                
-                // Резервное решение - сохраняем локально и предлагаем email
-                console.log('🔄 Используем резервный метод...');
-                
                 // Сохраняем в localStorage
                 const submissions = JSON.parse(localStorage.getItem('conferenceRegistrations') || '[]');
-                const formData = new FormData(this);
-                const data = Object.fromEntries(formData);
-                
-                submissions.push({
+                const newSubmission = {
                     ...data,
                     timestamp: new Date().toISOString(),
                     id: Date.now()
-                });
+                };
+                submissions.push(newSubmission);
                 localStorage.setItem('conferenceRegistrations', JSON.stringify(submissions));
                 
-                console.log('💾 Данные сохранены локально');
+                console.log('💾 Данные сохранены локально:', newSubmission);
                 
-                showFormMessage('✅ Данные сохранены! Хотите отправить подтверждение на почту?', 'info');
+                // Очищаем форму
+                registrationForm.reset();
+                if (topicField) {
+                    topicField.style.display = 'none';
+                }
                 
-                // Предлагаем отправить email
+                // Автоматически открываем почтовый клиент
+                console.log('📧 Открываем почтовый клиент...');
+                showFormMessage(translations[currentLang]['form-success-email'], 'success');
+                
                 setTimeout(() => {
-                    const shouldSendEmail = confirm('Отправить подтверждение на почту организатора?');
-                    if (shouldSendEmail) {
-                        sendViaEmail(data);
-                    } else {
-                        // Перенаправляем на страницу успеха
-                        window.location.href = 'https://nurbolatb.github.io/deai.almau.edu.kz/success.html';
-                    }
-                }, 1000);
+                    sendViaEmail(data);
+                }, 1500);
                 
+            } catch (error) {
+                console.error('💥 Ошибка при обработке формы:', error);
+                showFormMessage(translations[currentLang]['form-error'], 'error');
             } finally {
                 console.log('🔄 Восстанавливаем состояние кнопки');
                 // Восстанавливаем кнопку
@@ -668,3 +602,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('✅ Инициализация завершена');
 });
+
