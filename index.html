@@ -48,7 +48,7 @@
     <!-- about conferation  -->
     <section id="about-info-combo" class="about-info-combo-section">
       <div class="about-info-header">
-        <h2>О КОНФЕРЕНЦИИ</h2>
+        <h2 data-i18n="nav-about">О КОНФЕРЕНЦИИ</h2>
         <p>
           Конференция направлена на создание международной площадки для обсуждения того, как цифровизация и искусственный интеллект влияют на систему образования, учебный процесс и управление знаниями.
         </p>
@@ -133,27 +133,27 @@
         <h2>СПИКЕРЫ</h2>
         <div id="speakers-list" class="grid">
           <div class="speaker-card">
-            <img src="assets\images\Speak 1.png" class="speakers-circle"/>
+            <img src="assets/images/Speak 1.png" class="speakers-circle"/>
             <h4>Рэйчел Синг-и-Тан</h4>
-            <p>Руководитель программы, преподаватель, научный сотрудник, Университет INTI International, Малайзия﻿</p>
+            <p>Руководитель программы, преподаватель, научный сотрудник, Университет INTI International, Малайзия</p>
           </div>
           <div class="speaker-card">
-            <img src="assets\images\Speak 2.jpg" class="speakers-circle"/>
+            <img src="assets/images/Speak 2.jpg" class="speakers-circle"/>
             <h4>Андрей Комиссаров</h4>
             <p>Chief AI Officer корпорации "Синергия" и ведущий консультант по ИИ в образовании Сбер Университета"</p>
           </div>
           <div class="speaker-card">
-            <img src="assets\images\Speak 3.png" class="speakers-circle"/>
+            <img src="assets/images/Speak 3.png" class="speakers-circle"/>
             <h4>Чошанов Мурат</h4>
             <p>Д.п.н, профессор Университета Техаса в Эль-Пасо (США). Ведущий исследователь в области инженерии обучения, цифровой дидактики и интеграции ИИ в образование. Автор концепции «дидактической инженерии обучения», более 200 публикаций. Его исследования направлены на развитие AI-ориентированных педагогических практик, цифровизацию обучения и подготовку учителей нового поколения в эпоху ИИ</p>
           </div>
           <div class="speaker-card addl" style="display: none;">
-            <img src="assets\images\Speak 4.png" class="speakers-circle"/>
+            <img src="assets/images/Speak 4.png" class="speakers-circle"/>
             <h4>Кристоф Феньвеши</h4>
             <p>исследователь STEAM-образования и междисциплинарного обучения в Финском институте образовательных исследований Университета Ювяскюля (Финляндия). Adjunct Professor в университетах Кореи, Индонезии и Италии, член Европейской академии наук и искусств. Директор международного сообщества Bridges Organization, соучредитель Experience Workshop – Global STEAM Network. Эксперт Европейской комиссии по программам Horizon и Erasmus+. Его исследования посвящены интеграции науки и искусства, феномен-ориентированному и игровому обучению, STEAM-педагогике и междисциплинарным образовательным подходам.</p>
           </div>
           <div class="speaker-card addl" style="display: none;">
-            <img src="assets\images\Speak 5.png" class="speakers-circle"/>
+            <img src="assets/images/Speak 5.png" class="speakers-circle"/>
             <h4>Эзза Мад Багури</h4>
             <p>Старший преподаватель, Международный университет INTI, Малайзия.</p>
           </div>
@@ -168,91 +168,90 @@
         <h2>РЕГИСТРАЦИЯ</h2>
         <p class="registration-subtitle">Заполните форму ниже для участия в конференции</p>
 
+        <form id="registration-form" class="registration-form" method="POST" action="register.php">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullname">ФИО *</label>
+              <input type="text" id="fullname" name="name" placeholder="Иванов Иван Иванович" required>
+            </div>
 
-        <form id="registration-form" class="registration-form">
-    <!-- ТОЛЬКО ОБЫЧНЫЕ ПОЛЯ - НИКАКИХ СКРЫТЫХ ПОЛЕЙ! -->
-    
-    <div class="form-row">
-        <div class="form-group">
-            <label for="fullname">ФИО *</label>
-            <input type="text" id="fullname" name="name" placeholder="Иванов Иван Иванович" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-        </div>
-    </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            </div>
+          </div>
 
-    <div class="form-row">
-        <div class="form-group">
-            <label for="phone">Телефон</label>
-            <input type="tel" id="phone" name="phone" placeholder="+7 (777) 123-45-67">
-        </div>
-        
-        <div class="form-group">
-            <label for="country">Страна</label>
-            <input type="text" id="country" name="country" placeholder="Казахстан">
-        </div>
-    </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (777) 123-45-67">
+            </div>
 
-    <div class="form-group">
-        <label for="organization">Организация / Университет *</label>
-        <input type="text" id="organization" name="organization" placeholder="AlmaU University" required>
-    </div>
+            <div class="form-group">
+              <label for="country">Страна</label>
+              <input type="text" id="country" name="country" placeholder="Казахстан">
+            </div>
+          </div>
 
-    <div class="form-row">
-        <div class="form-group">
-            <label for="role">Роль *</label>
-            <select id="role" name="role" required>
+          <div class="form-group">
+            <label for="organization">Организация / Университет *</label>
+            <input type="text" id="organization" name="organization" placeholder="AlmaU University" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="role">Роль *</label>
+              <select id="role" name="role" required>
                 <option value="" disabled selected>Выберите роль</option>
                 <option value="Участник">Участник</option>
                 <option value="Докладчик">Докладчик</option>
                 <option value="Студент">Студент</option>
                 <option value="Преподаватель">Преподаватель</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="format">Формат участия *</label>
-            <select id="format" name="format" required>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="format">Формат участия *</label>
+              <select id="format" name="format" required>
                 <option value="" disabled selected>Выберите формат</option>
                 <option value="Онлайн">Онлайн</option>
                 <option value="Офлайн">Офлайн</option>
-            </select>
-        </div>
-    </div>
+              </select>
+            </div>
+          </div>
 
-    <div class="form-group" id="topic-field" style="display: none;">
-        <label for="topic">Тема доклада *</label>
-        <input type="text" id="topic" name="topic" placeholder="Введите тему вашего доклада">
-        <small>Пожалуйста, укажите тему вашего выступления</small>
-    </div>
+          <div class="form-group" id="topic-field" style="display: none;">
+            <label for="topic">Тема доклада *</label>
+            <input type="text" id="topic" name="topic" placeholder="Введите тему вашего доклада">
+            <small>Пожалуйста, укажите тему вашего выступления</small>
+          </div>
 
-    <div class="form-group">
-        <label for="comments">Дополнительные комментарии</label>
-        <textarea id="comments" name="comments" placeholder="Ваши вопросы или пожелания..." rows="3"></textarea>
-    </div>
+          <div class="form-group">
+            <label for="comments">Дополнительные комментарии</label>
+            <textarea id="comments" name="comments" placeholder="Ваши вопросы или пожелания..." rows="3"></textarea>
+          </div>
 
-    <div class="form-actions">
-        <button type="submit" class="btn btn-primary">
-            <span class="btn-text">Зарегистрироваться</span>
-            <span class="btn-loading" style="display: none;">Отправка...</span>
-        </button>
-    </div>
-</form>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              <span class="btn-text">Зарегистрироваться</span>
+              <span class="btn-loading" style="display: none;">Отправка...</span>
+            </button>
+          </div>
 
-        <div id="form-messages"></div>
+          <!-- Блок для сообщений -->
+          <div id="form-messages"></div>
+        </form>
       </div>
     </section>
 
+    <!-- Contacts -->
     <section id="contacts" class="section section--accent">
       <div class="container">
         <h3 id="contacts-title" data-i18n="contacts-title">Контакты</h3>
-        <p id="contacts-text" data-i18n="contacts-text1">📍 Адрес: г. Алматы, ул. Розыбакиева, 227, кабинет 253</p>
-        <p id="contacts-text" data-i18n="contacts-text2">📱 Телефон: +7 701 761 9108</p>
-        <p id="contacts-text" data-i18n="contacts-text3">📧 E-mail: deai.almau.edu.kz</p>
-        <p id="contacts-text" data-i18n="contacts-text4">🌐 Сайт: https://almau.edu.kz</p>
+        <p id="contacts-text1" data-i18n="contacts-text1">📍 Адрес: г. Алматы, ул. Розыбакиева, 227, кабинет 253</p>
+        <p id="contacts-text2" data-i18n="contacts-text2">📱 Телефон: +7 701 761 9108</p>
+        <p id="contacts-text3" data-i18n="contacts-text3">📧 E-mail: decai.almau.edu.kz</p>
+        <p id="contacts-text4" data-i18n="contacts-text4">🌐 Сайт: https://almau.edu.kz</p>
       </div>
     </section>
   </main>
