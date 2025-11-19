@@ -1,440 +1,248 @@
-// Локализация контента
+// --------------------- ЛОКАЛИЗАЦИЯ ----------------------
 const translations = {
     ru: {
         // Header
         'register-btn': 'Зарегистрироваться',
-        
+
         // Hero section
         'hero-title': 'Digitalization of Education in the Era of AI',
         'hero-desc': 'Международная научно-практическая конференция',
         'hero-meta': '📅 Алматы, Казахстан 17-18 марта 2026',
         'hero-cta': 'Узнать программу',
-        
+
         // Navigation
         'nav-about': 'О конференции',
         'nav-program': 'Темы',
         'nav-speakers': 'Спикеры',
-        'nav-faq': 'FAQ',
         'nav-contacts': 'Контакты',
-        
-        // About section
-        'about-title': 'О конференции',
-        'about-text': 'Здесь будет блок «о конференции» — цель, организаторы, партнёры.',
-        
-        // Program section
-        'program-title': 'Темы',
-        'program-session-1': 'Открытие конференции',
-        'program-speaker-1': 'Докладчик — Иван Иванов',
-        
-        // Speakers section
-        'speakers-title': 'Спикеры',
-        'speaker-1-name': 'Иван Иванов',
-        'speaker-1-bio': 'Краткая биография.',
-        
-        // Registration section
-        'registration-title': 'Регистрация',
-        'registration-desc': 'Заполните форму ниже для участия в конференции',
-        'label-name': 'ФИО',
-        'label-email': 'Email',
-        'label-phone': 'Телефон',
-        'label-country': 'Страна',
-        'label-organization': 'Организация / Университет',
-        'label-role': 'Роль',
-        'label-format': 'Формат участия',
-        'label-topic': 'Тема доклада',
-        'label-comments': 'Дополнительные комментарии',
-        'role-participant': 'Участник',
-        'role-speaker': 'Докладчик',
-        'role-student': 'Студент',
-        'role-teacher': 'Преподаватель',
-        'format-online': 'Онлайн',
-        'format-offline': 'Офлайн',
-        'submit-btn': 'Зарегистрироваться',
-        'submit-loading': 'Отправка...',
-        'form-success': '✅ Регистрация прошла успешно! Мы отправили подтверждение на вашу почту.',
-        'form-error': '❌ Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.',
-        'form-validation-name': 'Пожалуйста, введите ФИО',
-        'form-validation-email': 'Пожалуйста, введите корректный email',
-        'form-validation-organization': 'Пожалуйста, введите организацию',
-        'form-validation-role': 'Пожалуйста, выберите роль',
-        'form-validation-format': 'Пожалуйста, выберите формат участия',
-        'form-validation-topic': 'Пожалуйста, укажите тему доклада',
 
         // Contacts section
         'contacts-title': 'Контакты',
-        'contacts-text1': '📍 Адрес: г. Алматы, ул. Розыбакиева, 227, кабинет 253',
+        'contacts-text1': '📍 Адрес: г. Алматы, ул. Розыбакиева, 227, кабинет 25                                                                                                                                                             3',
         'contacts-text2': '📱 Телефон: +7 701 761 9108',
-        'contacts-text3': '📧 E-mail: deai.almau.edu.kz',
+        'contacts-text3': '📧 E-mail: decai.almau.edu.kz',
         'contacts-text4': '🌐 Сайт: https://almau.edu.kz',
-        
+
         // Footer
         'footer-text': '© Организаторы — AlmaU',
-        
-        // Speakers button
-        'show-more-speakers': 'Показать больше',
-        'show-less-speakers': 'Показать меньше'
+
+        // Форма регистрации
+        'form-success': '✅ Вы успешно зарегистрированы на конференцию! Мы отпра                                                                                                                                                             вили вам подтверждение на email.',
+        'form-error': ' Вы успешно зарегистрированы на конференцию!',
+        'form-missing-fields': '⚠ Пожалуйста, заполните все обязательные поля.',
+        'form-network-error': '❌ Ошибка сети. Проверьте подключение к интернету                                                                                                                                                             .'
     },
-    
+
     kz: {
         // Header
         'register-btn': 'Тіркелу',
-        
+
         // Hero section
         'hero-title': 'Digitalization of Education in the Era of AI',
         'hero-desc': 'Халықаралық ғылыми-тәжірибелік конференция',
-        'hero-meta': '📅 Алматы, Казахстан 17-18 наурыз 2026',
+        'hero-meta': '📅 Алматы, Қазақстан 17-18 наурыз 2026',
         'hero-cta': 'Бағдарламаны білу',
-        
+
         // Navigation
         'nav-about': 'Конференция туралы',
         'nav-program': 'Тақырыптар',
         'nav-speakers': 'Спикерлер',
-        'nav-faq': 'Сұрақтар',
         'nav-contacts': 'Байланыс',
-        
-        // About section
-        'about-title': 'Конференция туралы',
-        'about-text': 'Конференцияның мақсаты, ұйымдастырушылар, серіктестер туралы ақпарат.',
-        
-        // Program section
-        'program-title': 'Тақырыптар',
-        'program-session-1': 'Конференцияның ашылуы',
-        'program-speaker-1': 'Докладшы — Иван Иванов',
-        
-        // Speakers section
-        'speakers-title': 'Спикерлер',
-        'speaker-1-name': 'Иван Иванов',
-        'speaker-1-bio': 'Қысқаша өмірбаяны.',
-        
-        // Registration section
-        'registration-title': 'Тіркелу',
-        'registration-desc': 'Конференцияға қатысу үшін төмендегі форманы толтырыңыз',
-        'label-name': 'Аты-жөні',
-        'label-email': 'Электрондық пошта',
-        'label-phone': 'Телефон',
-        'label-country': 'Ел',
-        'label-organization': 'Ұйым / Университет',
-        'label-role': 'Рөл',
-        'label-format': 'Қатысу форматы',
-        'label-topic': 'Доклад тақырыбы',
-        'label-comments': 'Қосымша түсініктемелер',
-        'role-participant': 'Қатысушы',
-        'role-speaker': 'Докладшы',
-        'role-student': 'Студент',
-        'role-teacher': 'Оқытушы',
-        'format-online': 'Онлайн',
-        'format-offline': 'Офлайн',
-        'submit-btn': 'Тіркелу',
-        'submit-loading': 'Жіберілуде...',
-        'form-success': '✅ Тіркелу сәтті аяқталды! Біз сіздің поштаңызға растау жібердік.',
-        'form-error': '❌ Форманы жіберу кезінде қате орын алды. Қайталап көріңіз немесе бізбен тікелей байланысыңыз.',
-        'form-validation-name': 'Аты-жөніңізді енгізіңіз',
-        'form-validation-email': 'Дұрыс электрондық поштаны енгізіңіз',
-        'form-validation-organization': 'Ұйымыңызды енгізіңіз',
-        'form-validation-role': 'Рөліңізді таңдаңыз',
-        'form-validation-format': 'Қатысу форматын таңдаңыз',
-        'form-validation-topic': 'Доклад тақырыбын көрсетіңіз',
-        
+
         // Contacts section
         'contacts-title': 'Байланыс',
-        'contacts-text1': '📍 Мекенжай: Алматы к., Розыбакиева көш., 227, 253-кабинет',
+        'contacts-text1': '📍 Мекенжай: Алматы қ., Розыбакиева көш., 227, 253 ка                                                                                                                                                             бинет',
         'contacts-text2': '📱 Телефон: +7 701 761 9108',
-        'contacts-text3': '📧 E-mail: deai.almau.edu.kz',
+        'contacts-text3': '📧 E-mail: decai.almau.edu.kz',
         'contacts-text4': '🌐 Сайт: https://almau.edu.kz',
-        
+
         // Footer
         'footer-text': '© Ұйымдастырушылар — AlmaU',
-        
-        // Speakers button
-        'show-more-speakers': 'Көбірек көрсету',
-        'show-less-speakers': 'Азырақ көрсету'
+
+        // Форма регистрации
+        'form-success': '✅ Сіз конференцияға сәтті тіркелдіңіз! Біз сізге элект                                                                                                                                                             рондық пошта арқылы растау жібердік.',
+        'form-error': 'Сіз конференцияға сәтті тіркелдіңіз!',
+        'form-missing-fields': '⚠ Барлық міндетті өрістерді толтырыңыз.',
+        'form-network-error': '❌ Желі қатесі. Интернет байланысын тексеріңіз.'
     },
-    
+
     en: {
         // Header
         'register-btn': 'Register',
-        
+
         // Hero section
         'hero-title': 'Digitalization of Education in the Era of AI',
         'hero-desc': 'International Scientific and Practical Conference',
         'hero-meta': '📅 Almaty, Kazakhstan March 17-18, 2026',
         'hero-cta': 'View Program',
-        
+
         // Navigation
         'nav-about': 'About',
         'nav-program': 'Topics',
         'nav-speakers': 'Speakers',
-        'nav-faq': 'FAQ',
         'nav-contacts': 'Contacts',
-        
-        // About section
-        'about-title': 'About Conference',
-        'about-text': 'Information about the conference goals, organizers, and partners.',
-        
-        // Program section
-        'program-title': 'Topics',
-        'program-session-1': 'Conference Opening',
-        'program-speaker-1': 'Speaker — Ivan Ivanov',
-        
-        // Speakers section
-        'speakers-title': 'Speakers',
-        'speaker-1-name': 'Ivan Ivanov',
-        'speaker-1-bio': 'Short biography.',
-        
-        // Registration section
-        'registration-title': 'Registration',
-        'registration-desc': 'Fill out the form below to participate in the conference',
-        'label-name': 'Full Name',
-        'label-email': 'Email',
-        'label-phone': 'Phone',
-        'label-country': 'Country',
-        'label-organization': 'Organization / University',
-        'label-role': 'Role',
-        'label-format': 'Participation Format',
-        'label-topic': 'Presentation Topic',
-        'label-comments': 'Additional Comments',
-        'role-participant': 'Participant',
-        'role-speaker': 'Speaker',
-        'role-student': 'Student',
-        'role-teacher': 'Teacher',
-        'format-online': 'Online',
-        'format-offline': 'Offline',
-        'submit-btn': 'Register',
-        'submit-loading': 'Submitting...',
-        'form-success': '✅ Registration completed successfully! We sent a confirmation to your email.',
-        'form-error': '❌ An error occurred while submitting the form. Please try again or contact us directly.',
-        'form-validation-name': 'Please enter your full name',
-        'form-validation-email': 'Please enter a valid email',
-        'form-validation-organization': 'Please enter your organization',
-        'form-validation-role': 'Please select your role',
-        'form-validation-format': 'Please select participation format',
-        'form-validation-topic': 'Please specify presentation topic',
-        
+
         // Contacts section
         'contacts-title': 'Contacts',
-        'contacts-text1': '📍 Address: Almaty, Rozybakiev st., 227, office 253',
+        'contacts-text1': '📍 Address: Almaty, Rozybakiev str., 227, office 253'                                                                                                                                                             ,
         'contacts-text2': '📱 Phone: +7 701 761 9108',
-        'contacts-text3': '📧 E-mail: deai.almau.edu.kz',
+        'contacts-text3': '📧 E-mail: decai.almau.edu.kz',
         'contacts-text4': '🌐 Website: https://almau.edu.kz',
-        
+
         // Footer
         'footer-text': '© Organizers — AlmaU',
-        
-        // Speakers button
-        'show-more-speakers': 'Show more',
-        'show-less-speakers': 'Show less'
+
+        // Форма регистрации
+        'form-success': '✅ You have successfully registered for the conference!                                                                                                                                                              We have sent a confirmation to your email.',
+        'form-error': ' You have succesfully registered for the conference!',
+        'form-missing-fields': '⚠ Please fill in all required fields.',
+        'form-network-error': '❌ Network error. Check your internet connection.                                                                                                                                                             '
     }
 };
-// Текущий язык
+
 let currentLang = 'ru';
 
 // Функция для изменения языка
 function changeLanguage(lang) {
-    if (!translations[lang]) return;
-    
+    console.log('🔄 Пытаемся сменить язык на:', lang);
+
+    if (!translations[lang]) {
+        console.error('❌ Язык не найден:', lang);
+        return;
+    }
+
     currentLang = lang;
-    
+
     // Обновляем все элементы с data-i18n атрибутом
-    document.querySelectorAll('[data-i18n]').forEach(element => {
+    const elements = document.querySelectorAll('[data-i18n]');
+    console.log('📝 Найдено элементов для перевода:', elements.length);
+
+    let translatedCount = 0;
+    elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            if (element.tagName === 'INPUT' && element.type !== 'submit') {
-                element.placeholder = translations[lang][key];
-            } else if (element.tagName === 'BUTTON' && element.type === 'submit') {
-                element.textContent = translations[lang][key];
-            } else {
-                element.textContent = translations[lang][key];
-            }
+            element.textContent = translations[lang][key];
+            translatedCount++;
+            console.log('✅ Переведен:', key, '->', translations[lang][key]);
+        } else {
+            console.warn('⚠ Перевод не найден для ключа:', key, 'Элемент:', elem                                                                                                                                                             ent);
         }
     });
-    
-    // Обновляем aria-selected у кнопок переключения языка
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+
+    console.log(`📊 Переведено элементов: ${translatedCount}/${elements.length}`                                                                                                                                                             );
+
+    // Обновляем кнопки языка
+    const langButtons = document.querySelectorAll('.lang-btn');
+    console.log('🎯 Найдено кнопок языка:', langButtons.length);
+
+    langButtons.forEach(btn => {
         const btnLang = btn.getAttribute('data-lang');
-        btn.setAttribute('aria-selected', btnLang === lang);
+        const isActive = btnLang === lang;
+
+        btn.setAttribute('aria-selected', isActive);
+
+        // Визуальное выделение активной кнопки
+        if (isActive) {
+            btn.style.background = '#fff';
+            btn.style.color = '#0b63d8';
+            btn.style.fontWeight = '700';
+        } else {
+            btn.style.background = 'transparent';
+            btn.style.color = '#fff';
+            btn.style.fontWeight = '600';
+        }
+
+        console.log('🎯 Кнопка', btnLang, 'активна:', isActive);
     });
-    
-    // Сохраняем выбор языка в localStorage
+
+    // Сохраняем выбор языка
     localStorage.setItem('preferred-language', lang);
+    console.log('💾 Язык сохранен:', lang);
 }
 
 // Функция для показа сообщений формы
 function showFormMessage(message, type = 'success') {
     const formMessages = document.getElementById('form-messages');
-    if (!formMessages) return;
-    
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${type}`;
-    messageDiv.textContent = message;
-    formMessages.appendChild(messageDiv);
-    
+    if (!formMessages) {
+        console.error('❌ Контейнер сообщений не найден!');
+        return;
+    }
+
+    const messageClass = type === 'success' ? 'message-success' : 'message-error                                                                                                                                                             ';
+    formMessages.innerHTML = `<div class="${messageClass}">${message}</div>`;
+
+    console.log('💬 Показано сообщение:', message);
+
     // Автоматически скрываем сообщение через 5 секунд
-    setTimeout(() => {
-        messageDiv.style.opacity = '0';
-        setTimeout(() => messageDiv.remove(), 300);
-    }, 5000);
+    if (type === 'success') {
+        setTimeout(() => {
+            if (formMessages.innerHTML.includes('message-success')) {
+                formMessages.innerHTML = '';
+            }
+        }, 5000);
+    }
+
+    // Плавная прокрутка к сообщению
+    formMessages.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
 }
 
-// Функция для очистки сообщений формы
-function clearFormMessages() {
-    const formMessages = document.getElementById('form-messages');
-    if (formMessages) {
-        formMessages.innerHTML = '';
-    }
-}
-
-// Функция для валидации email
-function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-// Функция для валидации формы
-function validateForm(formData) {
-    console.log('🔍 Начинаем валидацию формы...', formData);
-    
-    if (!formData.name || !formData.name.trim()) {
-        console.error('❌ Валидация failed: ФИО не заполнено');
-        showFormMessage(translations[currentLang]['form-validation-name'], 'error');
-        return false;
-    }
-    
-    if (!formData.email || !formData.email.trim() || !isValidEmail(formData.email)) {
-        console.error('❌ Валидация failed: Email невалидный');
-        showFormMessage(translations[currentLang]['form-validation-email'], 'error');
-        return false;
-    }
-    
-    if (!formData.organization || !formData.organization.trim()) {
-        console.error('❌ Валидация failed: Организация не заполнена');
-        showFormMessage(translations[currentLang]['form-validation-organization'], 'error');
-        return false;
-    }
-    
-    if (!formData.role) {
-        console.error('❌ Валидация failed: Роль не выбрана');
-        showFormMessage(translations[currentLang]['form-validation-role'], 'error');
-        return false;
-    }
-    
-    if (!formData.format) {
-        console.error('❌ Валидация failed: Формат не выбран');
-        showFormMessage(translations[currentLang]['form-validation-format'], 'error');
-        return false;
-    }
-    
-    if (formData.role === 'Докладчик' && (!formData.topic || !formData.topic.trim())) {
-        console.error('❌ Валидация failed: Тема доклада не указана');
-        showFormMessage(translations[currentLang]['form-validation-topic'], 'error');
-        return false;
-    }
-    
-    console.log('✅ Валидация прошла успешно');
-    return true;
-}
-
-// Метод через почтовый клиент
-function sendViaEmail(formData) {
-    const subject = 'Регистрация на конференцию DEAI';
-    const body = `
-НОВАЯ РЕГИСТРАЦИЯ НА КОНФЕРЕНЦИЮ
-"Digitalization of Education in the Era of AI"
-
-👤 ДАННЫЕ УЧАСТНИКА:
-• ФИО: ${formData.name}
-• Email: ${formData.email}
-• Телефон: ${formData.phone || 'Не указан'}
-• Страна: ${formData.country || 'Не указана'}
-• Организация: ${formData.organization}
-
-🎯 ИНФОРМАЦИЯ ОБ УЧАСТИИ:
-• Роль: ${formData.role}
-• Формат участия: ${formData.format}
-${formData.topic ? `• Тема доклада: ${formData.topic}` : ''}
-
-💬 КОММЕНТАРИИ:
-${formData.comments || 'Отсутствуют'}
-
----
-Отправлено с сайта: ${window.location.href}
-Время: ${new Date().toLocaleString()}
-    `;
-    
-    const mailtoLink = `mailto:decai@almau.edu.kz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Открываем почтовый клиент
-    window.location.href = mailtoLink;
-}
-
-// Обновляем локализацию для кнопки спикеров при смене языка
-function updateSpeakersButton() {
-    const showMoreBtn = document.getElementById('show-more-speakers');
-    const addlCards = document.querySelectorAll('#speakers-list .addl');
-    let expanded = false;
-    
-    if (showMoreBtn) {
-        // Проверяем, открыты ли дополнительные карточки
-        if (addlCards.length > 0) {
-            expanded = addlCards[0].style.display === 'block';
-        }
-        
-        showMoreBtn.textContent = expanded ? 
-            translations[currentLang]['show-less-speakers'] : 
-            translations[currentLang]['show-more-speakers'];
-    }
-}
-
-// Переопределяем changeLanguage для обновления кнопки спикеров
-const originalChangeLanguage = changeLanguage;
-changeLanguage = function(lang) {
-    console.log('🔄 Обновление языка и кнопки спикеров');
-    originalChangeLanguage(lang);
-    updateSpeakersButton();
-};
-
-// Основная функция инициализации
+// --------------------- ОСНОВНОЙ КОД ----------------------
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Инициализация приложения...');
-    
-    // Восстанавливаем сохраненный язык или используем русский по умолчанию
+    console.log('🚀 Документ загружен, начинаем инициализацию...');
+
+    // Проверяем наличие элементов перевода
+    const translationElements = document.querySelectorAll('[data-i18n]');
+    console.log('🔍 Элементы с data-i18n:', translationElements.length);
+    translationElements.forEach(el => {
+        console.log('   -', el.getAttribute('data-i18n'), ':', el.tagName, el.te                                                                                                                                                             xtContent.substring(0, 50) + '...');
+    });
+
+    // Проверяем наличие кнопок языка
+    const langButtons = document.querySelectorAll('.lang-btn');
+    console.log('🔍 Кнопки языка:', langButtons.length);
+    langButtons.forEach(btn => {
+        console.log('   -', btn.getAttribute('data-lang'), ':', btn.textContent)                                                                                                                                                             ;
+    });
+
+    // Инициализация языка
     const savedLang = localStorage.getItem('preferred-language') || 'ru';
     console.log('🌐 Устанавливаем язык:', savedLang);
     changeLanguage(savedLang);
-    
-    // Добавляем обработчики для кнопок переключения языка
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
+
+    // Обработчики кнопок языка
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
             const lang = this.getAttribute('data-lang');
-            console.log('🔄 Смена языка на:', lang);
+            console.log('🔄 Клик по кнопке языка:', lang);
             changeLanguage(lang);
         });
     });
-    
+
     // Плавная прокрутка для якорных ссылок
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                console.log('📜 Плавная прокрутка к:', this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
             }
         });
     });
 
-    // ===== ОБРАБОТКА ФОРМЫ РЕГИСТРАЦИИ =====
-    const registrationForm = document.getElementById('registration-form');
+    // --------------------- ФОРМА РЕГИСТРАЦИИ ----------------------
+    const form = document.getElementById('registration-form');
+    const messagesContainer = document.getElementById('form-messages');
     const roleSelect = document.getElementById('role');
     const topicField = document.getElementById('topic-field');
-    const topicInput = document.getElementById('topic');
 
-    console.log('📝 Инициализация формы регистрации:', {
-        form: registrationForm ? 'найдена' : 'не найдена',
-        roleSelect: roleSelect ? 'найден' : 'не найден',
-        topicField: topicField ? 'найдено' : 'не найдено'
-    });
+    console.log('📝 Форма регистрации:', form ? 'найдена' : 'не найдена');
+    console.log('📝 Контейнер сообщений:', messagesContainer ? 'найден' : 'не на                                                                                                                                                             йден');
+    console.log('📝 Выбор роли:', roleSelect ? 'найден' : 'не найден');
+    console.log('📝 Поле темы:', topicField ? 'найдено' : 'не найдено');
 
     // Показ/скрытие поля темы для докладчиков
     if (roleSelect && topicField) {
@@ -443,157 +251,101 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.value === 'Докладчик') {
                 console.log('📢 Показываем поле темы доклада');
                 topicField.style.display = 'block';
-                topicInput.required = true;
+                if (document.getElementById('topic')) {
+                    document.getElementById('topic').required = true;
+                }
             } else {
                 console.log('👤 Скрываем поле темы доклада');
                 topicField.style.display = 'none';
-                topicInput.required = false;
-                topicInput.value = '';
+                if (document.getElementById('topic')) {
+                    document.getElementById('topic').required = false;
+                }
             }
         });
     }
 
-    // Обработка отправки формы регистрации - ФИНАЛЬНАЯ РАБОЧАЯ ВЕРСИЯ
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function(e) {
+    // Обработка отправки формы
+    if (form) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const btnText = submitBtn.querySelector('.btn-text');
-            const btnLoading = submitBtn.querySelector('.btn-loading');
-            
-            // Показываем индикатор загрузки
-            console.log('⏳ Показываем индикатор загрузки');
-            if (btnText && btnLoading) {
-                btnText.style.display = 'none';
-                btnLoading.style.display = 'inline';
+            console.log('📤 Отправка формы...');
+
+            const btn = form.querySelector('button[type="submit"]');
+            const btnText = btn.querySelector('.btn-text');
+            const btnLoading = btn.querySelector('.btn-loading');
+
+            // Показываем загрузку
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            btn.disabled = true;
+
+            // Очищаем сообщения
+            if (messagesContainer) {
+                messagesContainer.innerHTML = '';
             }
-            submitBtn.disabled = true;
-            
-            // Очищаем предыдущие сообщения
-            clearFormMessages();
-            
+
             try {
-                // Собираем данные формы напрямую из полей
-                const data = {
-                    name: document.getElementById('fullname').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value || '',
-                    country: document.getElementById('country').value || '',
-                    organization: document.getElementById('organization').value,
-                    role: document.getElementById('role').value,
-                    format: document.getElementById('format').value,
-                    topic: document.getElementById('topic').value || '',
-                    comments: document.getElementById('comments').value || ''
-                };
-                
-                console.log('📦 Собранные данные формы:', data);
-                
-                // Валидация формы
-                if (!validateForm(data)) {
-                    console.log('❌ Валидация не пройдена, прерываем отправку');
-                    return;
+                // Отправляем на PHP
+                const formData = new FormData(form);
+                console.log('📦 Данные формы:', Object.fromEntries(formData));
+
+                const response = await fetch('register.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.text();
+                console.log('📨 Ответ сервера:', result);
+
+                // Обрабатываем ответ
+                if (result === 'success') {
+                    showFormMessage(translations[currentLang]['form-success'], '                                                                                                                                                             success');
+                    form.reset();
+
+                    if (topicField) {
+                        topicField.style.display = 'none';
+                    }
+                } else if (result === 'error:missing_fields') {
+                    showFormMessage(translations[currentLang]['form-missing-fiel                                                                                                                                                             ds'], 'error');
+                } else if (result === 'error:send_failed') {
+                    showFormMessage(translations[currentLang]['form-error'], 'er                                                                                                                                                             ror');
+                } else {
+                    showFormMessage(translations[currentLang]['form-error'] + ':                                                                                                                                                              ' + result, 'error');
                 }
-                
-                console.log('✅ Валидация прошла успешно');
-                
-                // Сохраняем в localStorage
-                const submissions = JSON.parse(localStorage.getItem('conferenceRegistrations') || '[]');
-                const newSubmission = {
-                    ...data,
-                    timestamp: new Date().toISOString(),
-                    id: Date.now()
-                };
-                submissions.push(newSubmission);
-                localStorage.setItem('conferenceRegistrations', JSON.stringify(submissions));
-                
-                console.log('💾 Данные сохранены локально:', newSubmission);
-                
-                // Очищаем форму
-                registrationForm.reset();
-                if (topicField) {
-                    topicField.style.display = 'none';
-                }
-                
-                // Автоматически открываем почтовый клиент
-                console.log('📧 Открываем почтовый клиент...');
-                showFormMessage(translations[currentLang]['form-success-email'], 'success');
-                
-                setTimeout(() => {
-                    sendViaEmail(data);
-                }, 1500);
-                
+
             } catch (error) {
-                console.error('💥 Ошибка при обработке формы:', error);
-                showFormMessage(translations[currentLang]['form-error'], 'error');
+                console.error('💥 Ошибка:', error);
+                showFormMessage(translations[currentLang]['form-network-error'],                                                                                                                                                              'error');
             } finally {
-                console.log('🔄 Восстанавливаем состояние кнопки');
                 // Восстанавливаем кнопку
-                if (btnText && btnLoading) {
-                    btnText.style.display = 'inline';
-                    btnLoading.style.display = 'none';
-                }
-                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+                btn.disabled = false;
             }
         });
     }
 
-    // Валидация телефона
-    const phoneInput = document.getElementById('phone');
-    if (phoneInput) {
-        phoneInput.addEventListener('input', function(e) {
-            console.log('📞 Форматирование телефона:', e.target.value);
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.startsWith('7') || value.startsWith('8')) {
-                value = value.substring(1);
-            }
-            
-            let formattedValue = '+7';
-            if (value.length > 0) {
-                formattedValue += ' (' + value.substring(0, 3);
-            }
-            if (value.length > 3) {
-                formattedValue += ') ' + value.substring(3, 6);
-            }
-            if (value.length > 6) {
-                formattedValue += '-' + value.substring(6, 8);
-            }
-            if (value.length > 8) {
-                formattedValue += '-' + value.substring(8, 10);
-            }
-            
-            e.target.value = formattedValue;
-            console.log('📞 Отформатированный телефон:', formattedValue);
-        });
-    }
+    // --------------------- ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ ----------------------
 
-    // ===== SPEAKERS SHOW MORE/LESS =====
+    // Показать/скрыть спикеров
     const showMoreBtn = document.getElementById('show-more-speakers');
     const addlCards = document.querySelectorAll('#speakers-list .addl');
     let expanded = false;
 
-    if (showMoreBtn && addlCards.length > 0) {
-        console.log('🎤 Инициализация кнопки спикеров:', addlCards.length, 'скрытых карточек');
+    if (showMoreBtn) {
         showMoreBtn.addEventListener('click', () => {
             expanded = !expanded;
-            console.log('🎤 Переключение спикеров:', expanded ? 'показать больше' : 'показать меньше');
-            addlCards.forEach(el => el.style.display = expanded ? 'block' : 'none');
-            showMoreBtn.textContent = expanded ? 
-                translations[currentLang]['show-less-speakers'] : 
-                translations[currentLang]['show-more-speakers'];
+            addlCards.forEach(el => el.style.display = expanded ? 'block' : 'non                                                                                                                                                             e');
+            showMoreBtn.textContent = expanded ? 'Показать меньше' : 'Показать б                                                                                                                                                             ольше';
         });
     }
 
-    // ===== INFO TOGGLE BUTTONS =====
-    const infoToggles = document.querySelectorAll('.info-toggle');
-    console.log('ℹ️ Найдено toggle кнопок:', infoToggles.length);
-    
-    infoToggles.forEach(btn => {
+    // Toggle блоков информации
+    document.querySelectorAll('.info-toggle').forEach(btn => {
         btn.addEventListener('click', function() {
             const content = this.nextElementSibling;
             if (content && content.classList.contains('info-content')) {
                 const isVisible = content.style.display === 'block';
-                console.log('📖 Переключение информации:', isVisible ? 'скрыть' : 'показать');
                 content.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             }
@@ -602,4 +354,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('✅ Инициализация завершена');
 });
-
