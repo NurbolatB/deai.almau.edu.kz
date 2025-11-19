@@ -121,15 +121,22 @@ function changeLanguage(lang) {
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            element.textContent = translations[lang][key];
+            // Обработка разных типов элементов
+            if (element.tagName === 'INPUT' && element.type !== 'submit') {
+                element.placeholder = translations[lang][key];
+            } else if (element.tagName === 'BUTTON' && element.type === 'submit') {
+                element.textContent = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
             translatedCount++;
             console.log('✅ Переведен:', key, '->', translations[lang][key]);
         } else {
-            console.warn('⚠ Перевод не найден для ключа:', key, 'Элемент:', elem                                                                                                                                                             ent);
+            console.warn('⚠ Перевод не найден для ключа:', key, 'Элемент:', element);
         }
     });
 
-    console.log(`📊 Переведено элементов: ${translatedCount}/${elements.length}`                                                                                                                                                             );
+    console.log(`📊 Переведено элементов: ${translatedCount}/${elements.length}`);
 
     // Обновляем кнопки языка
     const langButtons = document.querySelectorAll('.lang-btn');
