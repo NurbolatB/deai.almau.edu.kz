@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap">
 </head>
+
 <body>
   <!-- Header/Main -->
   <header class="site-header">
@@ -15,7 +17,14 @@
         <img src="assets/images/logo__footer.png" alt="AlmaU logo" class="logo" />
       </div>
 
-      <nav class="main-nav">
+      <!-- Hamburger Menu Button -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <a href="#about-info-combo" data-i18n="nav-about">О конференции</a>
         <a href="#about-info-combo" data-i18n="nav-program">Темы</a>
         <a href="#speakers" data-i18n="nav-speakers">Спикеры</a>
@@ -38,208 +47,465 @@
         <div class="container">
           <p id="hero-desc" data-i18n="hero-desc">Международная научно-практическая конференция</p>
           <h2 id="hero-title" data-i18n="hero-title">Digitalization of Education in the Era of AI</h2>
-          <p class="meta" id="hero-meta" data-i18n="hero-meta">📅 Алматы, Казахстан 17-18 марта 2026</p>
+          <p class="meta" id="hero-meta" data-i18n="hero-meta">📅 Алматы, Казахстан 18 марта 2026</p>
           <a href="#registration" class="btn" id="register-btn" data-i18n="register-btn">Зарегистрироваться</a>
           <a href="#about-info-combo" class="btn" id="hero-cta" data-i18n="hero-cta">Узнать программу</a>
         </div>
       </div>
     </section>
 
-    <!-- about conferation  -->
+    <!-- about conference  -->
     <section id="about-info-combo" class="about-info-combo-section">
       <div class="about-info-header">
         <h2 data-i18n="nav-about">О КОНФЕРЕНЦИИ</h2>
-        <p>
-          Конференция направлена на создание международной площадки для обсуждения того, как цифровизация и искусственный интеллект влияют на систему образования, учебный процесс и управление знаниями.
+        <p data-i18n="nav-conf">
+          Конференция направлена на создание международной площадки для обмена передовым опытом в сфере цифровизации и
+          применения ИИ в высшем образовании. Приоритеты конференции заключаются в том, чтобы определить влияние ИИ и
+          цифровых технологий на качество обучения и управление вузами, укрепить сотрудничество между наукой,
+          государством и EdTech-бизнесом, обсудить современные методики с акцентом на этику и безопасность данных, а
+          также определить направления развития цифровых компетенций преподавателей.
         </p>
-        <p>Участники смогут поделиться опытом, обсудить современные подходы и инструменты, а также определить пути развития цифровых компетенций преподавателей.</p>
       </div>
       <div class="about-info-combo-container">
         <div class="about-info-left">
           <div class="grid-about">
             <div class="info-block">
-              <button class="info-toggle">ЗНАНИЯ ОТ ПРАКТИКОВ</button>
-              <div class="info-content">Сессии ведут опытные специалисты с реальными кейсами и рекомендациями. Программа разделена на секции — вы выбираете те, что максимально подходят вашим задачам.</div>
+              <button class="info-toggle" data-i18n="knowledge-btn">ЗНАНИЯ ОТ ПРАКТИКОВ</button>
+              <div class="info-content" data-i18n="knowledge-content">Сессии ведут опытные специалисты с реальными
+                кейсами и рекомендациями. Программа разделена на секции — вы выбираете те, что максимально подходят
+                вашим задачам.</div>
             </div>
             <div class="info-block">
-              <button class="info-toggle">ОБЩЕНИЕ С ЛИДЕРАМИ</button>
-              <div class="info-content">Знакомство с экспертами, инвесторами, EdTech–партнёрами и единомышленниками. Расширяйте сеть контактов и находите новые возможности для сотрудничества.</div>
+              <button class="info-toggle" data-i18n="leaders-btn">ОБЩЕНИЕ С ЛИДЕРАМИ</button>
+              <div class="info-content" data-i18n="leaders-content">Знакомство с экспертами, инвесторами,
+                EdTech–партнёрами и единомышленниками. Расширяйте сеть контактов и находите новые возможности для
+                сотрудничества.</div>
             </div>
             <div class="info-block">
-              <button class="info-toggle">ПОСЛЕДНИЕ ТЕНДЕНЦИИ И ТЕХНОЛОГИИ</button>
-              <div class="info-content">Изучение эффективных и инновационных инструментов цифровизации и ИИ, которые помогут улучшить методы обучения, управления и развития проектов.</div>
+              <button class="info-toggle" data-i18n="trends-btn">ПОСЛЕДНИЕ ТЕНДЕНЦИИ И ТЕХНОЛОГИИ</button>
+              <div class="info-content" data-i18n="trends-content">Изучение эффективных и инновационных инструментов
+                цифровизации и ИИ, которые помогут улучшить методы обучения, управления и развития проектов.</div>
             </div>
             <div class="info-block">
-              <button class="info-toggle">ИНСТРУМЕНТЫ, ПРОВЕРЕННЫЕ НА ПРАКТИКЕ</button>
-              <div class="info-content">Участники смогут протестировать решения и совместно реализовать примерный мини-проект с обсуждением каждого шага — от постановки задачи до результата.</div>
+              <button class="info-toggle" data-i18n="tools-btn">ИНСТРУМЕНТЫ, ПРОВЕРЕННЫЕ НА ПРАКТИКЕ</button>
+              <div class="info-content" data-i18n="tools-content">Участники смогут протестировать решения и совместно
+                реализовать примерный мини-проект с обсуждением каждого шага — от постановки задачи до результата.</div>
             </div>
+            <div class="info-block">
+              <button class="info-toggle" data-i18n="certificates-btn">СЕРТИФИКАТЫ</button>
+              <div class="info-content" data-i18n="certificates-content">Все участники конференции получат электронные
+                сертификаты участия. Ссылка для скачивания сертификатов будет размещена на сайте конференции.</div>
+            </div>
+
+
+
+
           </div>
         </div>
         <div class="about-info-right">
           <div class="info-container">
             <div class="info-block">
-              <button class="info-toggle">ПРОГРАММА КОНФЕРЕНЦИИ</button>
-              <div class="info-content">Подробная программа конференции.</div>
+              <button class="info-toggle" data-i18n="program-btn">ПРОГРАММА КОНФЕРЕНЦИИ</button>
+              <div class="info-content" data-i18n="program-content">Подробная программа конференции.</div>
             </div>
             <div class="info-block">
-              <button class="info-toggle">ТЕМЫ КОНФЕРЕНЦИИ</button>
+              <button class="info-toggle" data-i18n="key-directions-btn">КЛЮЧЕВЫЕ НАПРАВЛЕНИЯ</button>
               <div class="info-content transparent">
-                <ul>
-                  <li>Искусственный интеллект и аналитика данных в высшем образовании</li>
-                  <li>Цифровая педагогика и проектирование учебных программ</li>
-                  <li>Этические и правовые аспекты применения ИИ в образовании</li>
-                  <li>Гибридные и Hi-Flex модели обучения</li>
-                  <li>Цифровые компетенции и развитие преподавателей</li>
-                  <li>Инновации EdTech и стратегии цифровой трансформации</li>
+                <ul data-i18n-list="directions-list">
+                  <li>
+                    <strong data-i18n="direction-1-title">1. Искусственный интеллект в образовании</strong>
+                    <ul>
+                      <li data-i18n="direction-1-1">Персонализированные траектории обучения и автоматизация оценки</li>
+                      <li data-i18n="direction-1-2">Адаптивные инструменты взаимодействия, мониторинг вовлеченности и
+                        обратная связь</li>
+                      <li data-i18n="direction-1-3">Этика, прозрачность и безопасность применения ИИ в образовании</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong data-i18n="direction-2-title">2. Предикативная аналитика и машинное обучение в
+                      педагогике</strong>
+                    <ul>
+                      <li data-i18n="direction-2-1">Прогнозирование успеваемости и динамики образовательных результатов
+                      </li>
+                      <li data-i18n="direction-2-2">Модели для автоматической адаптации контента и учебных материалов
+                      </li>
+                      <li data-i18n="direction-2-3">Практические кейсы внедрения ML-технологий в образовательную среду
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong data-i18n="direction-3-title">3. Системы поддержки принятия решений на основе
+                      данных</strong>
+                    <ul>
+                      <li data-i18n="direction-3-1">Управленческие решения на основе анализа образовательных данных</li>
+                      <li data-i18n="direction-3-2">Аналитика образовательных данных для корректировки педагогического
+                        дизайна</li>
+                      <li data-i18n="direction-3-3">Интеграция разнородных данных в единую образовательную экосистему
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong data-i18n="direction-4-title">4. Виртуальная и дополненная реальность</strong>
+                    <ul>
+                      <li data-i18n="direction-4-1">Влияние VR/AR на вовлеченность и качество усвоения материала</li>
+                      <li data-i18n="direction-4-2">Методология разработки VR/AR контента и образовательных приложений
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong data-i18n="direction-5-title">5. Трансформация дистанционного и гибридного обучения</strong>
+                    <ul>
+                      <li data-i18n="direction-5-1">Педагогический дизайн эффективных онлайн- и смешанных моделей</li>
+                      <li data-i18n="direction-5-2">Развитие синхронных и асинхронных коммуникаций как способ
+                        формирования активного учебного сообщества</li>
+                      <li data-i18n="direction-5-3">Методы верификации и обеспечения академической честности в
+                        дистанционном формате</li>
+                      <li data-i18n="direction-5-4">Развитие цифровых компетенций педагога в условиях ИИ-поддерживаемых
+                        образовательных сред</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong data-i18n="direction-6-title">6. Кибербезопасность в образовательных технологиях</strong>
+                    <ul>
+                      <li data-i18n="direction-6-1">Защита данных и конфиденциальности обучающихся</li>
+                      <li data-i18n="direction-6-2">Угрозы кибербезопасности для образовательных организаций</li>
+                      <li data-i18n="direction-6-3">Методические рекомендации для разработки безопасных EdTech-решений
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong data-i18n="direction-7-title">7. Обучение программированию и вычислительному
+                      мышлению</strong>
+                    <ul>
+                      <li data-i18n="direction-7-1">Интеграция программирования в образовательные программы высшего
+                        образования</li>
+                      <li data-i18n="direction-7-2">Развитие вычислительного мышления как инструмента решения прикладных
+                        задач</li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>
+
+            <!-- Ключевые даты -->
             <div class="info-block">
-              <button class="info-toggle">ТРЕБОВАНИЯ К ПУБЛИКАЦИИ</button>
+              <button class="info-toggle" data-i18n="dates-btn">КЛЮЧЕВЫЕ ДАТЫ</button>
               <div class="info-content">
-                <ul>
-                  <li>Название статьи:(не более 15 слов, отражает основную идею исследования)</li>
-                  <li>Авторы:ФИО,Ученая степень, должность, кафедра, университет, город, страна, E-mail: author1@email.com; author2@email.com</li>
-                  <li>Аннотация (Abstract) должна быть информативной и краткой (150–250 слов)</li>
-                  <li>Ключевые слова</li>
-                  <li> I. Введение, II. Обзор литературы, III. Материалы и методы, IV. Результаты и обсуждение, V. Заключение</li>
-                  <li>Список литературы (в формате IEEE)</li>
+                <ul data-i18n-list="dates-list">
+                  <li data-i18n="date-1">Прием заявок и материалов: до 15 февраля 2026 года</li>
+                  <li data-i18n="date-2">Уведомление о принятии: до 20 февраля 2026 года</li>
+                  <li data-i18n="date-3">Публикация программы: 1 марта 2026 года</li>
                 </ul>
               </div>
             </div>
+
+            <!-- Реквизиты для оплаты -->
             <div class="info-block">
-              <button class="info-toggle">МЕРОПРИЯТИЯ</button>
+              <button class="info-toggle" data-i18n="payment-btn">РЕКВИЗИТЫ ДЛЯ ОПЛАТЫ</button>
               <div class="info-content">
-                <ul>
-                  <li>Выставка книг</li>
-                  <li>Выставка онлайн курсов</li>
-                  <li>Выставка оборудования для Онлайн обучения</li>
-                  <li>Компании по AI</li>
-                </ul>
+                <div data-i18n="payment-text-1">
+                  <p>По вопросам публикаций, приема заявок и докладов обращаться в Оргкомитет конференции.</p>
+                  <p>Регистрационный взнос в размере 10 000 тенге (20USD) может быть перечислен на расчетный счет Алматы
+                    Менеджмент университета:</p>
+                </div>
+                <div data-i18n="payment-details">
+                  <p><strong>Реквизиты для оплаты:</strong></p>
+                  <p>УО «Алматы Менеджмент Университет»</p>
+                  <p>РНН 600400079841, КБЕ 18</p>
+                  <p>БИН 971240001583</p>
+                  <p>ИИК KZ406017131000053681 (тенге)</p>
+                  <p>KZ336017131000057687 (USD)</p>
+                  <p>АО «Народный Банк Казахстан»</p>
+                  <p>БИК HSBKKZKX</p>
+                  <p>050060, г. Алматы, ул. Розыбакиева, 227</p>
+                </div>
+                <div data-i18n="payment-instructions">
+                  <p><strong>В квитанции необходимо указать:</strong></p>
+                  <p>ФИО участника конференции;</p>
+                  <p>за участие в конференции "Цифровое образование в эпоху искусственного интеллекта".</p>
+                  <p>Электронную копию квитанции высылать на e-mail: <a
+                      href="mailto:decai@almau.edu.kz">decai@almau.edu.kz</a></p>
+                </div>
               </div>
             </div>
+
+
+            <!-- Требования к публикации -->
             <div class="info-block">
-              <button class="info-toggle">СЕРТИФИКАТЫ</button>
-              <div class="info-content">Электронный сборник материалов будет издан к открытию конференции и направлен участникам на e-mail, указанный при регистрации.</div>
+              <button class="info-toggle" data-i18n="publication-btn">ТРЕБОВАНИЯ К ПУБЛИКАЦИИ</button>
+              <div class="info-content">
+                <div data-i18n="publication-text-1">
+                  <p><strong>Публикация материалов и сертификаты</strong></p>
+                  <p>Электронный сборник материалов будет издан к открытию конференции и направлен участникам на e-mail,
+                    указанный при регистрации.</p>
+                  <p>Направляемые для публикации статьи оформляются в соответствии с требованиями:</p>
+                </div>
+
+                <div data-i18n="publication-requirements">
+                  <p><strong>Основные требования:</strong></p>
+                  <ul>
+                    <li>Объем не более 5 страниц, формата А4, файл MS Word в формате .docx.</li>
+                    <li>Оригинальность текста не менее 75% (Антиплагиат или др.сервисы).</li>
+                    <li>Статья не должна быть ранее опубликована.</li>
+                  </ul>
+                </div>
+
+                <div data-i18n="formatting-params">
+                  <p><strong>Параметры статьи:</strong></p>
+                  <ul>
+                    <li>Шрифт: Times New Roman, 12 pt</li>
+                    <li>Межстрочный интервал: 1,0</li>
+                    <li>Все поля: 2,0 см</li>
+                    <li>Отступ первой строки абзаца: 0,5 см</li>
+                    <li>Рисунки и таблицы должны иметь подписи и ссылки в тексте</li>
+                    <li>Страницы статьи не нумеруются</li>
+                  </ul>
+                </div>
+
+                <div data-i18n="article-structure">
+                  <p><strong>Статья должна содержать следующие элементы:</strong></p>
+                  <ol>
+                    <li>
+                      <strong>Название</strong> (не более 10 слов, отражает основную идею исследования)
+                    </li>
+                    <li>
+                      <strong>Информация об авторах</strong> (указывается для каждого автора отдельно):<br>
+                      Фамилия Имя Отчество¹, Фамилия Имя Отчество², ...<br>
+                      ¹ Ученая степень, ученое звание, кафедра, университет (указывается без сокращений), город,
+                      страна<br>
+                      ² Должность, место работы, город, страна<br>
+                      *E-mail: author1@email.com; author2@email.com
+                    </li>
+                    <li>
+                      <strong>Аннотация</strong> (Аңдатпа, Abstract) на русском, казахском, английском языках. Аннотация
+                      должна быть информативной и краткой (150 слов), отражать цель, методы, результаты и основные
+                      выводы исследования, без сокращений, ссылок, формул.
+                    </li>
+                    <li>
+                      <strong>Ключевые слова</strong> и словосочетания («Ключевые слова:», «Түйін сөздер:», «Keywords:»
+                      не менее 5)
+                    </li>
+                    <li>
+                      <strong>Текст статьи</strong> содержит основные элементы (по формату IMRAD):<br>
+                      I. Введение (Актуальность, проблема, цель, задачи, значимость)<br>
+                      II. Литературный обзор (Анализ источников, пробелы, обоснование исследования)<br>
+                      III. Методология (Дизайн, выборка, методы сбора и анализа, этика)<br>
+                      IV. Результаты и обсуждение (Представление данных, интерпретация, новизна)<br>
+                      V. Заключение (Выводы, значимость, перспективы)
+                    </li>
+                    <li>
+                      <strong>Благодарности</strong> (указать при наличии грантов, проектов, поддержки коллег)
+                    </li>
+                    <li>
+                      <strong>Список литературы</strong> (в формате IEEE)<br>
+                      Номера присваиваются в порядке первого упоминания источника в тексте в квадратных скобках.
+                      Обязательно DOI (Digital Object Identifier) для статей.<br>
+                      Примеры:<br>
+                      [1] Автор А.А., Автор Б.Б. Название статьи // Название журнала. Год. Т. №, С. ХХ–ХХ.<br>
+                      [2] Автор В.В. Название книги. — Город: Издательство, Год.<br>
+                      [3] Author C.C. Paper title // Conference Proceedings. City, Year, pp. 100–105.
+                    </li>
+                  </ol>
+                </div>
+
+                <div data-i18n="peer-review-delivery">
+                  <p><strong>Материалы проходят рецензирование редакционной коллегией.</strong></p>
+                  <p><strong>Отправка статей на e-mail:</strong> decai@almau.edu.kz</p>
+                  <p><strong>Все участники получат электронные сертификаты участия.</strong></p>
+                </div>
+
+                <div data-i18n="important-dates-updated">
+                  <p><strong>Важные даты:</strong></p>
+                  <ul>
+                    <li>* Прием заявок и материалов: до 15 февраля 2026 года</li>
+                    <li>* Уведомление о принятии: до 20 февраля 2026 года</li>
+                    <li>* Публикация программы: 1 марта 2026 года</li>
+                  </ul>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
-      </div>
     </section>
+
 
     <!-- Speakers -->
     <section id="speakers" class="section">
       <div class="container">
-        <h2>СПИКЕРЫ</h2>
+        <h2 data-i18n="nav-speakers">СПИКЕРЫ</h2>
         <div id="speakers-list" class="grid">
-          <div class="speaker-card">
-            <img src="assets/images/Speak 1.png" class="speakers-circle"/>
-            <h4>Рэйчел Синг-и-Тан</h4>
-            <p>Руководитель программы, преподаватель, научный сотрудник, Университет INTI International, Малайзия</p>
+
+          <div class="speaker-card" data-speaker="1">
+            <img src="assets/images/Speak 1.png" class="speakers-circle" alt="Rachel Sing-i-Tan" />
+            <h4 data-i18n="speaker-1-name">Рэйчел Синг-и-Тан</h4>
+            <p data-i18n="speaker-1-desc">Руководитель программы, преподаватель, научный сотрудник, Университет INTI
+              International, Малайзия</p>
           </div>
-          <div class="speaker-card">
-            <img src="assets/images/Speak 2.jpg" class="speakers-circle"/>
-            <h4>Андрей Комиссаров</h4>
-            <p>Chief AI Officer корпорации "Синергия" и ведущий консультант по ИИ в образовании Сбер Университета"</p>
+
+          <div class="speaker-card" data-speaker="3">
+            <img src="assets/images/Speak3.png" class="speakers-circle" alt="Choshanov Murat" />
+            <h4 data-i18n="speaker-3-name">Исабаева Даража Нагашыбаевна</h4>
+            <p data-i18n="speaker-3-desc">Кандидат педагогических наук, и.о. профессора. Директор Управления
+              онлайн-образования AlmaU</p>
           </div>
-          <div class="speaker-card">
-            <img src="assets/images/Speak 3.png" class="speakers-circle"/>
-            <h4>Чошанов Мурат</h4>
-            <p>Д.п.н, профессор Университета Техаса в Эль-Пасо (США). Ведущий исследователь в области инженерии обучения, цифровой дидактики и интеграции ИИ в образование. Автор концепции «дидактической инженерии обучения», более 200 публикаций. Его исследования направлены на развитие AI-ориентированных педагогических практик, цифровизацию обучения и подготовку учителей нового поколения в эпоху ИИ</p>
+
+          <div class="speaker-card addl" data-speaker="4">
+            <img src="assets/images/Speak 4.png" class="speakers-circle" alt="Kristof Fenveshi" />
+            <h4 data-i18n="speaker-4-name">Кристоф Феньвеши</h4>
+            <p data-i18n="speaker-4-desc">Исследователь STEAM-образования, директор Bridges Organization и др.</p>
           </div>
-          <div class="speaker-card addl" style="display: none;">
-            <img src="assets/images/Speak 4.png" class="speakers-circle"/>
-            <h4>Кристоф Феньвеши</h4>
-            <p>исследователь STEAM-образования и междисциплинарного обучения в Финском институте образовательных исследований Университета Ювяскюля (Финляндия). Adjunct Professor в университетах Кореи, Индонезии и Италии, член Европейской академии наук и искусств. Директор международного сообщества Bridges Organization, соучредитель Experience Workshop – Global STEAM Network. Эксперт Европейской комиссии по программам Horizon и Erasmus+. Его исследования посвящены интеграции науки и искусства, феномен-ориентированному и игровому обучению, STEAM-педагогике и междисциплинарным образовательным подходам.</p>
+
+          <div class="speaker-card addl" data-speaker="5">
+            <img src="assets/images/Speak 5.png" class="speakers-circle" alt="Ezza Mad Baguri" />
+            <h4 data-i18n="speaker-5-name">Эзза Мад Багури</h4>
+            <p data-i18n="speaker-5-desc">Старший преподаватель, Международный университет INTI, Малайзия.</p>
           </div>
-          <div class="speaker-card addl" style="display: none;">
-            <img src="assets/images/Speak 5.png" class="speakers-circle"/>
-            <h4>Эзза Мад Багури</h4>
-            <p>Старший преподаватель, Международный университет INTI, Малайзия.</p>
+
+          <div class="speaker-card addl" data-speaker="6">
+            <img src="assets/images/Speak6.png" class="speakers-circle" alt="Ualii Khusei" />
+            <h4 data-i18n="speaker-6-name">Уалий Хусей</h4>
+            <p data-i18n="speaker-6-desc">Эксперт-ментор для EdTech-проектов и центров оценки, специализирующийся на
+              системном масштабировании в контексте образовательных реформ на Кавказе и в Центральной Азии.</p>
           </div>
+          <div class="speaker-card" data-speaker="2">
+            <img src="assets/images/Speak 2.jpg" class="speakers-circle" alt="Andrey Komissarov" />
+            <h4 data-i18n="speaker-2-name">Андрей Комиссаров</h4>
+            <p data-i18n="speaker-2-desc">Chief AI Officer корпорации "Синергия" и ведущий консультант по ИИ в
+              образовании Сбер Университета</p>
+          </div>
+          <div class="speaker-card" data-speaker="7">
+            <img src="assets/images/Speak7.png" class="speakers-circle" alt="Alice Shanthi" />
+            <h4 data-i18n="speaker-7-name">Элис Шанти</h4>
+            <p data-i18n="speaker-7-desc">Профессор Элис Шанти, PhD Адъюнкт-профессор Филиал Технологического
+              университета МАРA (UiTM) в штате Негери-Сембилан Кампус Серембан 70300 Негери-Сембилан Малайзия</p>
+          </div>
+
+
         </div>
-        <button id="show-more-speakers" class="btn">Показать больше</button>
       </div>
     </section>
+
+    <!-- Speaker Modal -->
+    <div id="speaker-modal" class="speaker-modal-overlay">
+      <div class="speaker-modal">
+        <button class="speaker-modal-close" aria-label="Закрыть">&times;</button>
+        <div class="speaker-modal-header">
+          <img id="modal-speaker-photo" class="speaker-modal-photo" src="" alt="Speaker Photo" />
+          <div class="speaker-modal-info">
+            <h3 id="modal-speaker-name"></h3>
+            <p id="modal-speaker-desc"></p>
+          </div>
+        </div>
+        <div class="speaker-modal-tabs">
+          <button class="speaker-tab active" data-tab="biography" data-i18n="modal-tab-bio">БИОГРАФИЯ</button>
+          <button class="speaker-tab" data-tab="report" data-i18n="modal-tab-report">ДОКЛАД</button>
+        </div>
+        <div class="speaker-modal-content">
+          <div id="tab-biography" class="speaker-tab-content active">
+            <p id="modal-speaker-bio"></p>
+          </div>
+          <div id="tab-report" class="speaker-tab-content">
+            <p id="modal-speaker-report"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
     <!-- Registration -->
     <section id="registration" class="section registration-section">
       <div class="container">
-        <h2>РЕГИСТРАЦИЯ</h2>
-        <p class="registration-subtitle">Заполните форму ниже для участия в конференции</p>
+        <h2 data-i18n="registration-title">РЕГИСТРАЦИЯ</h2>
+        <p class="registration-subtitle" data-i18n="registration-subtitle">Заполните форму ниже для участия в
+          конференции</p>
+
+        <!-- Блок с пояснительным текстом -->
 
         <form id="registration-form" class="registration-form" method="POST" action="register.php">
           <div class="form-row">
             <div class="form-group">
-              <label for="fullname">ФИО *</label>
+              <label for="fullname" data-i18n="form-name">ФИО *</label>
               <input type="text" id="fullname" name="name" placeholder="Иванов Иван Иванович" required>
             </div>
 
             <div class="form-group">
-              <label for="email">Email *</label>
+              <label for="email" data-i18n="form-email">Email *</label>
               <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="phone">Телефон</label>
-              <input type="tel" id="phone" name="phone" placeholder="+7 (777) 123-45-67">
+              <label for="phone" data-i18n="form-phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (777) 123-45-67" required>
             </div>
 
             <div class="form-group">
-              <label for="country">Страна</label>
-              <input type="text" id="country" name="country" placeholder="Казахстан">
+              <label for="country" data-i18n="form-country">Страна</label>
+              <input type="text" id="country" name="country" placeholder="Казахстан" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="organization">Организация / Университет *</label>
+            <label for="organization" data-i18n="form-organization">Организация / Университет *</label>
             <input type="text" id="organization" name="organization" placeholder="AlmaU University" required>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="role">Роль *</label>
-              <select id="role" name="role" required>
-                <option value="" disabled selected>Выберите роль</option>
-                <option value="Участник">Участник</option>
-                <option value="Докладчик">Докладчик</option>
-                <option value="Студент">Студент</option>
-                <option value="Преподаватель">Преподаватель</option>
+              <label for="category" data-i18n="form-category">Категория участия *</label>
+              <select id="category" name="category" required>
+                <option value="" disabled selected data-i18n="form-category-placeholder">Выберите категорию</option>
+                <option value="Участник без доклада" data-i18n="form-category-no-report">Участник без доклада</option>
+                <option value="Участник с докладом" data-i18n="form-category-with-report">Участник с докладом</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="format">Формат участия *</label>
+              <label for="status" data-i18n="form-status">Статус участника *</label>
+              <select id="status" name="status" required>
+                <option value="" disabled selected data-i18n="form-status-placeholder">Выберите статус</option>
+                <option value="Обучающийся" data-i18n="form-status-student">Обучающийся</option>
+                <option value="Преподаватель" data-i18n="form-status-teacher">Преподаватель</option>
+                <option value="Представитель компании" data-i18n="form-status-company">Представитель компании</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="format" data-i18n="form-format">Формат участия *</label>
               <select id="format" name="format" required>
-                <option value="" disabled selected>Выберите формат</option>
-                <option value="Онлайн">Онлайн</option>
-                <option value="Офлайн">Офлайн</option>
+                <option value="" disabled selected data-i18n="form-format-placeholder">Выберите формат</option>
+                <option value="Онлайн" data-i18n="form-format-online">Онлайн</option>
+                <option value="Офлайн" data-i18n="form-format-offline">Офлайн</option>
               </select>
             </div>
           </div>
 
           <div class="form-group" id="topic-field" style="display: none;">
-            <label for="topic">Тема доклада *</label>
+            <label for="topic" data-i18n="form-topic">Тема доклада *</label>
             <input type="text" id="topic" name="topic" placeholder="Введите тему вашего доклада">
-            <small>Пожалуйста, укажите тему вашего выступления</small>
+            <small data-i18n="form-topic-hint">Пожалуйста, укажите тему вашего выступления</small>
           </div>
 
           <div class="form-group">
-            <label for="comments">Дополнительные комментарии</label>
+            <label for="comments" data-i18n="form-comments">Дополнительные комментарии</label>
             <textarea id="comments" name="comments" placeholder="Ваши вопросы или пожелания..." rows="3"></textarea>
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" data-i18n="submit-btn">
               <span class="btn-text">Зарегистрироваться</span>
-              <span class="btn-loading" style="display: none;">Отправка...</span>
+              <span class="btn-loading" style="display: none;" data-i18n="submit-loading">Отправка...</span>
             </button>
           </div>
 
           <!-- Блок для сообщений -->
-          <div id="form-messages"></div>
+          <div id="form-messages" aria-live="polite"></div>
         </form>
       </div>
     </section>
@@ -250,8 +516,9 @@
         <h3 id="contacts-title" data-i18n="contacts-title">Контакты</h3>
         <p id="contacts-text1" data-i18n="contacts-text1">📍 Адрес: г. Алматы, ул. Розыбакиева, 227, кабинет 253</p>
         <p id="contacts-text2" data-i18n="contacts-text2">📱 Телефон: +7 701 761 9108</p>
-        <p id="contacts-text3" data-i18n="contacts-text3">📧 E-mail: decai.almau.edu.kz</p>
-        <p id="contacts-text4" data-i18n="contacts-text4">🌐 Сайт: https://almau.edu.kz</p>
+        <p id="contacts-text3"><a href="mailto:decai@almau.edu.kz">📧 decai@almau.edu.kz</a></p>
+        <p id="contacts-text4"><a href="https://almau.edu.kz" target="_blank" rel="noopener noreferrer">🌐
+            almau.edu.kz</a></p>
       </div>
     </section>
   </main>
@@ -264,4 +531,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
